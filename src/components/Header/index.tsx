@@ -1,4 +1,4 @@
-import { ChainId, Currency, NATIVE, MIST_ADDRESS } from '@mintswapcash/sdk'
+import { ChainId, Currency, NATIVE, MINT_ADDRESS } from '@mintswapcash/sdk'
 import { Feature, featureEnabled } from '../../functions/feature'
 import React, { useEffect, useState } from 'react'
 
@@ -147,8 +147,8 @@ function AppBar(): JSX.Element {
                     {chainId && [ChainId.SMARTBCH].includes(chainId) && library && library.provider.isMetaMask && (
                       <>
                         <AddToken
-                          imageProps={{src: "/images/tokens/xmist-square.jpg", alt: "xMIST"}}
-                          text={i18n._(t`Add xMIST to your MetaMask wallet`)}
+                          imageProps={{src: "/images/tokens/xmist-square.jpg", alt: "xMINT"}}
+                          text={i18n._(t`Add xMINT to your MetaMask wallet`)}
                           metamaskProps={{
                             address: '0x584cd161a2263b62b5d3d267440328b7d2abf319',
                             symbol: 'xMINT',
@@ -158,13 +158,13 @@ function AppBar(): JSX.Element {
                       </>
                     )}
 
-                    {chainId && chainId in MIST_ADDRESS && library && library.provider.isMetaMask && (
+                    {chainId && chainId in MINT_ADDRESS && library && library.provider.isMetaMask && (
                       <>
                         <AddToken
-                          imageProps={{src: "/images/tokens/mist-square.jpg", alt: "MIST"}}
+                          imageProps={{src: "/images/tokens/mist-square.jpg", alt: "MINT"}}
                           text={i18n._(t`Add MINT to your MetaMask wallet`)}
                           metamaskProps={{
-                            address: MIST_ADDRESS[chainId],
+                            address: MINT_ADDRESS[chainId],
                             symbol: 'MINT',
                             decimals: 18,
                             image: 'https://assets.mintswap.cash/blockchains/mintme/assets/0x5fA664f69c2A4A3ec94FaC3cBf7049BD9CA73129/logo.png',
