@@ -1,4 +1,4 @@
-import { ChainId, Currency, NATIVE, MIST_ADDRESS } from '@mistswapdex/sdk'
+import { ChainId, Currency, NATIVE, MIST_ADDRESS } from '@mintswapcash/sdk'
 import { Feature, featureEnabled } from '../../functions/feature'
 import React, { useEffect, useState } from 'react'
 
@@ -40,7 +40,7 @@ function AppBar(): JSX.Element {
             <div className="px-4 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Image src="/logo.png" alt="Mist" width="32px" height="32px" />
+                  <Image src="/logo.png" alt="Mint" width="32px" height="32px" />
                   <div className="hidden sm:block sm:ml-4">
                     <div className="flex space-x-2">
                       {/* <Buy /> */}
@@ -132,7 +132,7 @@ function AppBar(): JSX.Element {
                       {chainId && featureEnabled(Feature.ANALYTICS, chainId) && (
                         <ExternalLink
                           id={`analytics-nav-link`}
-                          href={ANALYTICS_URL[chainId] || 'https://analytics.mistswap.fi'}
+                          href={ANALYTICS_URL[chainId] || 'https://analytics.mintswapcash.cash'}
                           className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                         >
                           {i18n._(t`Analytics`)}
@@ -150,10 +150,10 @@ function AppBar(): JSX.Element {
                           imageProps={{src: "/images/tokens/xmist-square.jpg", alt: "xMIST"}}
                           text={i18n._(t`Add xMIST to your MetaMask wallet`)}
                           metamaskProps={{
-                            address: '0xC41C680c60309d4646379eD62020c534eB67b6f4',
-                            symbol: 'xMIST',
+                            address: '0x584cd161a2263b62b5d3d267440328b7d2abf319',
+                            symbol: 'xMINT',
                             decimals: 18,
-                            image: 'https://assets.mistswap.fi/blockchains/smartbch/assets/0xC41C680c60309d4646379eD62020c534eB67b6f4/logo.png',
+                            image: 'https://assets.mintswap.cash/blockchains/mintme/assets/0xC41C680c60309d4646379eD62020c534eB67b6f4/logo.png',
                           }} />
                       </>
                     )}
@@ -162,12 +162,12 @@ function AppBar(): JSX.Element {
                       <>
                         <AddToken
                           imageProps={{src: "/images/tokens/mist-square.jpg", alt: "MIST"}}
-                          text={i18n._(t`Add MIST to your MetaMask wallet`)}
+                          text={i18n._(t`Add MINT to your MetaMask wallet`)}
                           metamaskProps={{
                             address: MIST_ADDRESS[chainId],
-                            symbol: 'MIST',
+                            symbol: 'MINT',
                             decimals: 18,
-                            image: 'https://assets.mistswap.fi/blockchains/smartbch/assets/0x5fA664f69c2A4A3ec94FaC3cBf7049BD9CA73129/logo.png',
+                            image: 'https://assets.mintswap.cash/blockchains/mintme/assets/0x5fA664f69c2A4A3ec94FaC3cBf7049BD9CA73129/logo.png',
                           }} />
                       </>
                     )}
@@ -340,7 +340,7 @@ function AppBar(): JSX.Element {
                 {chainId && featureEnabled(Feature.ANALYTICS, chainId) && (
                   <ExternalLink
                     id={`analytics-nav-link`}
-                    href={ANALYTICS_URL[chainId] || 'https://analytics.mistswap.fi'}
+                    href={ANALYTICS_URL[chainId] || 'https://analytics.mintswap.cash'}
                     className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                   >
                     {i18n._(t`Analytics`)}
