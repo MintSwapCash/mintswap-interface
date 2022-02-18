@@ -12,8 +12,8 @@ import {
 } from '../../services/graph'
 
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId, WNATIVE, Token, WBCH, MASTERCHEF_ADDRESS } from '@mistswapdex/sdk'
-import { MIST, FLEXUSD, LAWUSD } from '../../config/tokens'
+import { ChainId, WNATIVE, Token, WBCH, MASTERCHEF_ADDRESS } from '@mintswapcash/sdk'
+import { MINT, FLEXUSD } from '../../config/tokens'
 import Container from '../../components/Container'
 import FarmList from '../../features/onsen/FarmList'
 import Head from 'next/head'
@@ -51,328 +51,44 @@ export default function Farm(): JSX.Element {
   updateFarmFilter(type)
 
   const hardcodedPairs = {
-    [ChainId.SMARTBCH]: {
-      "0x674A71E69fe8D5cCff6fdcF9F1Fa4262Aa14b154": {
+    [ChainId.MINTME]: {
+      "0x50B0DbB8c384150C32a4dD953104654f0Ca1d1DF": {
         farmId: 7,
         allocPoint: 300000000,
-        token0: MIST[ChainId.SMARTBCH],
-        token1: WBCH[ChainId.SMARTBCH],
+        token0: MINT[ChainId.MINTME],
+        token1: WMINT[ChainId.MINTME],
       },
-      "0x437E444365aD9ed788e8f255c908bceAd5AEA645": {
+      "0x6E91c8822A26AfE0B32Cb797Cac56438832e2055": {
         farmId: 8,
         allocPoint: 18895896,
-        token0: MIST[ChainId.SMARTBCH],
+        token0: MINT[ChainId.MINTME],
         token1: FLEXUSD,
       },
-      "0x80F712670d268cf2C05e7162674c7466c940eBE3": {
-        farmId: 0,
-        allocPoint: 15532938,
-        token0: new Token(ChainId.SMARTBCH, '0x77CB87b57F54667978Eb1B199b28a0db8C8E1c0B', 18, 'EBEN', 'Green Ben'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x24f011f12Ea45AfaDb1D4245bA15dCAB38B43D13": {
+      "0xE4A5449a649C04616AEC9CFb3883030df52b3934": {
         farmId: 1,
         allocPoint: 300496954,
         token0: FLEXUSD,
-        token1: WBCH[ChainId.SMARTBCH],
+        token1: WMINT[ChainId.MINTME],
       },
-      "0x4fF52e9D7824EC9b4e0189F11B5aA0F02b459b03": {
+      "0x3dd76c428a094AB5b2A8108bBA7FE07d58aCd79B": {
         farmId: 2,
-        allocPoint: 10921078,
-        token0: new Token(ChainId.SMARTBCH, '0x98Dd7eC28FB43b3C4c770AE532417015fa939Dd3', 18, 'FLEX', 'FLEX Coin'),
-        token1: FLEXUSD,
+        allocPoint: 0,
+        token0: MINT[ChainId.MINTME],
+        token1: new Token(ChainId.MINTME, '0x584cd161a2263b62b5d3d267440328b7d2abf319', 18, 'XMIST', 'MISTbar'),
       },
-      "0x1EE39F93450d80981c169E59C8A641a3bC853A09": {
+      "0xf9B4AdA5312016d192AADD167E2dA2d8fa8c61C3": {
         farmId: 3,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xff3ed63bf8bc9303ea0a7e1215ba2f82d569799e', 18, 'ORB', 'ORB'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xc98552Ad7DFC5daabAd2660DF378e0070ca75Efc": {
-        farmId: 4,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xc70c7718C7f1CCd906534C2c4a76914173EC2c44', 18, 'KTH', 'Knuth'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x287a276401caDBe50d5C0398137490E6d45830Dd": {
-        farmId: 5,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xe11829a7d5d8806bb36e118461a1012588fafd89', 18, 'SPICE', 'SPICE'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x41075d2Ea8BEF1CAfb24D9Bd2061b620cbc05B60": {
-        farmId: 6,
-        allocPoint: 9144225,
-        token0: new Token(ChainId.SMARTBCH, '0x675E1d6FcE8C7cC091aED06A68D079489450338a', 18, 'ARG', 'Bitcoin Cash Argentina'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xc47B0B4B51EE06De0daF02517D78f0473B776633": {
-        farmId: 9,
-        allocPoint: 66660671,
-        token0: new Token(ChainId.SMARTBCH, '0x265bD28d79400D55a1665707Fa14A72978FA6043', 2, 'CATS', 'CashCats'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xD6EcaDB40b35D17f739Ec27285759d0ca119e3A1": {
-        farmId: 10,
-        allocPoint: 9508994,
-        token0: new Token(ChainId.SMARTBCH, '0x3d13DaFcCA3a188DB340c81414239Bc2be312Ec9', 18, 'AXIEBCH', 'AxieBCH'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xFCf26E0EB200692B3002f941eea0486d2E901aA9": {
-        farmId: 11,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0x2f309b9d47b1ce7f0ec30a26bab2deab8c4ea5e9', 18, 'SHIBBCH', 'Shiba BCH'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xCFcBC90e617a3996355761b52dF2830B7b6718d0": {
-        farmId: 12,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0x741746C2Cf4117730d7f087e8492dF595b4fd283', 18, 'DOGE', 'DOGEBCH'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xf9D33ABfaF59fd19077f44399A8971621Cd2eA55": {
-        farmId: 13,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xFfA2394B61D3dE16538a2Bbf3491297Cc5a7C79a', 18, 'UAT', 'UatX Token'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xCabdb1321CEAb169935a0c9d4c856250766C3df7": {
-        farmId: 14,
-        allocPoint: 15930397,
-        token0: new Token(ChainId.SMARTBCH, '0xB5b1939ef0a3743d0Ae9282DbA62312b614A5Ac0', 18, 'POTA', 'Potato'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xbE48dC2353a460668A5D859C66e4472661581998": {
-        farmId: 15,
-        allocPoint: 3895864,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0xF2d4D9c65C2d1080ac9e1895F6a32045741831Cd', 2, 'HONK', 'Honk'),
-      },
-      "0x12E03015A85A0c2c1eca69486147608ABB0b801c": {
-        farmId: 16,
-        allocPoint: 0,
-        token0: FLEXUSD,
-        token1: new Token(ChainId.SMARTBCH, '0x2f309b9d47b1ce7f0ec30a26bab2deab8c4ea5e9', 18, 'SHIBBCH', 'Shiba BCH'),
-      },
-      "0x6B68f5D7d0531207a01e9AC16cfCd223D2139D28": {
-        farmId: 17,
-        allocPoint: 0,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x7eBeAdb95724a006aFaF2F1f051B13F4eBEBf711', 2, '$KITTEN', 'CashKitten'),
-      },
-      "0x24615e918AD078900BfE13F4cd26876Bae64dD75": {
-        farmId: 18,
-        allocPoint: 8496585,
-        token0: new Token(ChainId.SMARTBCH, '0x0b00366fBF7037E9d75E4A569ab27dAB84759302', 18, 'LAW', 'LAWTOKEN'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xa331430473ABA2337698fD95a7c2fCf376DEbFb1": {
-        farmId: 19,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xC41C680c60309d4646379eD62020c534eB67b6f4', 18, 'XMIST', 'MISTbar'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x1c47c2a72e86B9B488f436F7aC76ACc61e531926": {
-        farmId: 20,
-        allocPoint: 0,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x481De06DCA0198844faA36FCa04Db364e5c2f86C', 6, 'MAZE', 'MAZE'),
-      },
-      "0xA32B73445dBc075dA5054503171362D790164dC9": {
-        farmId: 21,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0x4F1480ba79F7477230ec3b2eCc868E8221925072', 18, 'KONRA', 'Konra'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xE3e155c22685F7ceAB3F429CA60f302bCFb13616": {
-        farmId: 22,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xB5b1939ef0a3743d0Ae9282DbA62312b614A5Ac0', 18, 'POTA', 'Potato'),
-        token1: FLEXUSD,
-      },
-      "0x0663B29E3CAa8F2DB0313eA8B3E942a0431429cf": {
-        farmId: 23,
-        allocPoint: 0,
-        token0: MIST[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0xC41C680c60309d4646379eD62020c534eB67b6f4', 18, 'XMIST', 'MISTbar'),
-      },
-      "0x211c0d74b1213A40Bdfd61490A9893353544ea46": {
-        farmId: 24,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0x5a3bB59F34D60E9EB5643Fb80C8D712275F6a96A', 18, 'PHA', 'Alpha'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x8e5EdB62775c1Cd003804Ec2a8242E5E0393876b": {
-        farmId: 25,
-        allocPoint: 0,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x80453ACDfE0073D6743B27D72e06F48777EeAd80', 0, 'ZOMBIE', 'ZOMBIE'),
-      },
-      "0x49260567a5610414954a1D8F0E7774104FC5CAED": {
-        farmId: 26,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0x98Dd7eC28FB43b3C4c770AE532417015fa939Dd3', 18, 'FLEX', 'FLEX Coin'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x64c379ab93b859AdA71b8AbACA77BeD104a5DbCa": {
-        farmId: 27,
-        allocPoint: 25590307,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x9288df32951386A8254aEaF80a66B78cCaf75b82', 2, 'sBUSD', 'Smart BUSD'),
-      },
-      "0xFEC4202E22d0cd950aFC52622114e787FFFa0F53": {
-        farmId: 28,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xFC27A40259f5d36F647b1142443Ed8941334C608', 18, 'C4Q', 'C4Q'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x98A03761Fe62b9A1FD7888D86f70E94a40ACD511": {
-        farmId: 29,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0xB24D7763516bca9656779d760be9a32490f46E27', 18, 'HODL', 'HODL'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x8221D04A71FcD0Dd3d096cB3B49E22918095933F": {
-        farmId: 30,
-        allocPoint: 5724322,
-        token0: new Token(ChainId.SMARTBCH, '0x9192940099fDB2338B928DE2cad9Cd1525fEa881', 18, 'BPAD', 'BCHPad'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x5775D98022590dc60E9c4Ae0a1c56bF1fD8fcaDC": {
-        farmId: 31,
-        allocPoint: 14925656,
-        token0: new Token(ChainId.SMARTBCH, '0x7642Df81b5BEAeEb331cc5A104bd13Ba68c34B91', 18, 'CLY', 'Celery'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x20943aD7855bdE06Dd41BB89C9D2efE05DB329EC": {
-        farmId: 32,
-        allocPoint: 0,
-        token0: new Token(ChainId.SMARTBCH, '0x6732E55Ac3ECa734F54C26Bd8DF4eED52Fb79a6E', 18, 'JOY', 'Joystick'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xB02A135992478a485D9DD771092CdD8B4487594A": {
-        farmId: 33,
-        allocPoint: 11304180,
-        token0: new Token(ChainId.SMARTBCH, '0xAFACB0004A91267b58e720E13DF570Dc6863c854', 18, 'STO', 'SmartBCH Token Observer'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xE75Ec02F28bC0E1ca1794FbFFe8229ac1662075E": {
-        farmId: 34,
-        allocPoint: 7553514,
-        token0: new Token(ChainId.SMARTBCH, '0x252fd94f3Fb53D3D62F4FEc708501ACd59A57e52', 8, 'HAM', 'HAM Token'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x99057a0cB475D1c4d950d552E77e9E68CdDb8261": {
-        farmId: 35,
-        allocPoint: 9703179,
-        token0: FLEXUSD,
-        token1: new Token(ChainId.SMARTBCH, '0xca0235058985fcC1839E9e37c10900a73C126708', 7, 'DAO', 'Decentralized Autonomous Organization'),
-      },
-      "0x1F354956DE4A7Ed71308225De94a27b35A84EA57": {
-        farmId: 36,
-        allocPoint: 10091644,
-        token0: new Token(ChainId.SMARTBCH, '0x225FCa2A940cd5B18DFb168cD9B7f921C63d7B6E', 18, 'FIRE', 'Incinerate'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0xBe8C7C35103c443844Ef234cFFd73a491Df6f503": {
-        farmId: 37,
         allocPoint: 15401755,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0xca0235058985fcC1839E9e37c10900a73C126708', 7, 'DAO', 'Decentralized Autonomous Organization'),
+        token0: WMINT[ChainId.MINTME],
+        token1: new Token(ChainId.MINTME, '0x93CD8ACF69Ef5FD2D3340FA00B27bC562d7738C6', 18, 'DAI', 'DAI Stabletoken'),
       },
-      "0xB31f44E525Cc07037E55bd448004CfF66f1fa878": {
-        farmId: 38,
-        allocPoint: 0,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x8d7Ea0ec6CaB515463121A3c70Df541f2F534909', 9, 'WOJAK', 'WOJAK'),
-      },
-      "0x49F8C72fCA1f6F62411da1Aa451c479e1324Eb8f": {
-        farmId: 39,
+      "0xDcD4F7E2fA15200a030FF7994eEFE4E8a2412094": {
+        farmId: 4,
         allocPoint: 16458210,
         token0: FLEXUSD,
-        token1: new Token(ChainId.SMARTBCH, '0x9288df32951386A8254aEaF80a66B78cCaf75b82', 2, 'sBUSD', 'Smart BUSD'),
-      },
-      "0xEA5038043364830c489D7fd8F95eFE35eaE6f4Ff": {
-        farmId: 40,
-        allocPoint: 10053255,
-        token0: new Token(ChainId.SMARTBCH, '0x2b591190FF951F60CB9424664155e57A402c1AdE', 3, '🌙🌙🌙🌙', 'MoonMoonMoonMoon'),
-        token1: WBCH[ChainId.SMARTBCH],
-      },
-      "0x2eA9369dAEE963CeBc0266AE8b98c3E015C59046": {
-        farmId: 41,
-        allocPoint: 7704190,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0xd2597a0bde31Ddec2440E256d8AA35eb63F1A9e3', 18, 'GAME', 'Game'),
-      },
-      "0x800632AFC31225813b06185EA8Be8eD571820a50": {
-        farmId: 42,
-        allocPoint: 8094038,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x6e6D4ECE35EEd638A1153339F69E543B7ae5F776', 9, 'SMART', 'SmartDoge'),
-      },
-      "0x5e937a1E35e1D931FEbB70E2b061ED38c8E43336": {
-        farmId: 43,
-        allocPoint: 0,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0xe5643aAF41ed9e5a56C3D5D1a049b43Ac69950b2', 18, 'BCHDAO', 'BCHDAO'),
-      },
-      "0x7E1B9F1e286160A80ab9B04D228C02583AeF90B5": {
-        farmId: 44,
-        allocPoint: 9154285,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0xF05bD3d7709980f60CD5206BddFFA8553176dd29', 18, 'SIDX', 'SmartIndex'),
-      },
-      "0x4fd950b3cA45d6F40E5187706D3981ee955E06b4": {
-        farmId: 45,
-        allocPoint: 0,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x4B85a666deC7C959e88b97814E46113601B07e57', 18, 'GoC', 'GoCrypto'),
-      },
-      "0xC20A4f3012bA2Df47544d4926B19604Fa777FB01": {
-        farmId: 46,
-        allocPoint: 33935881,
-        token0: new Token(ChainId.SMARTBCH, '0x56381cB87C8990971f3e9d948939e1a95eA113a3', 9, 'GOB', 'Goblin'),
-        token1: FLEXUSD,
-      },
-      "0x1D5A7bea34EE984D54aF6Ff355A1Cb54c29eb546": {
-        farmId: 47,
-        allocPoint: 16930892,
-        token0: new Token(ChainId.SMARTBCH, '0x0b00366fBF7037E9d75E4A569ab27dAB84759302', 18, 'LAW', 'LAWTOKEN'),
-        token1: new Token(ChainId.SMARTBCH, '0xE1E655BE6F50344e6dd708c27BD8D66492d6ecAf', 18, 'lawUSD', 'LAW US Dollar'),
-      },
-      "0xE1B5bC09427710BC4d886eC49654944110B58134": {
-        farmId: 48,
-        allocPoint: 12184556,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x0E36C351ff40183435C9Bd1D17bfb1F3548f1963', 18, 'LAMBO', 'wenlambo'),
-      },
-      "0x380094357328488781a0FB31c271a13DB7357c1E": {
-        farmId: 49,
-        allocPoint: 10226248,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x7b82A3b1417Cd21E67f745917a80cC0f53277B8C', 7, 'EVE', 'Expected Value Entropy'),
-      },
-      "0x8C14d399F3E12b702EFfD16cf27337637b38C84A": {
-        farmId: 50,
-        allocPoint: 10861373,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x4592B88618119e55e37FFCb28EDE02beF6F3c5bA', 18, 'FRN', 'Friend'),
-      },
-      "0x0151b25a5acF7f2F31bB2Ab4358c9FA894Db2Cb2": {
-        farmId: 51,
-        allocPoint: 4618896,
-        token0: WBCH[ChainId.SMARTBCH],
-        token1: new Token(ChainId.SMARTBCH, '0x659F04F36e90143fCaC202D4BC36C699C078fC98', 18, 'CLK', 'CatsLuck'),
+        token1: new Token(ChainId.MINTME, '0xc94B5459e4F1f20bb7bb301557e52E5516Ae3538', 18, 'MUSD', 'MINTME USD'),
       },
     },
-    [ChainId.SMARTBCH_AMBER]: {
-      "0x07DE6fc05597E0E4c92C83637A8a0CA411f3a769": {
-        farmId: 0,
-        allocPoint: 1000,
-        token0: WBCH[ChainId.SMARTBCH_AMBER],
-        token1: new Token(ChainId.SMARTBCH_AMBER, '0xC6F80cF669Ab9e4BE07B78032b4821ed5612A9ce', 18, 'sc', 'testcoin2'),
-      },
-    }
   };
 
   const kashiPairs = [] // unused
@@ -454,11 +170,11 @@ export default function Farm(): JSX.Element {
         const chefBalance = Number.parseFloat(v2PairsBalances[farms[i].pair].toFixed());
 
         let tvl = 0;
-        if (farms[i].pool.token0 === MIST[chainId].address) {
+        if (farms[i].pool.token0 === MINT[chainId].address) {
           const reserve = Number.parseFloat(farms[i].pool.reserves[0].toFixed());
           tvl = reserve / totalSupply * chefBalance * mistPriceUSD * 2;
         }
-        else if (farms[i].pool.token1 === MIST[chainId].address) {
+        else if (farms[i].pool.token1 === MINT[chainId].address) {
           const reserve = Number.parseFloat(farms[i].pool.reserves[1].toFixed());
           tvl = reserve / totalSupply * chefBalance * mistPriceUSD * 2;
         }
@@ -470,19 +186,11 @@ export default function Farm(): JSX.Element {
           const reserve = Number.parseFloat(farms[i].pool.reserves[1].toFixed());
           tvl = reserve / totalSupply * chefBalance * 2;
         }
-        else if (farms[i].pool.token0 === LAWUSD.address) {
-          const reserve = Number.parseFloat(farms[i].pool.reserves[0].toFixed());
-          tvl = reserve / totalSupply * chefBalance * 2;
-        }
-        else if (farms[i].pool.token1 === LAWUSD.address) {
-          const reserve = Number.parseFloat(farms[i].pool.reserves[1].toFixed());
-          tvl = reserve / totalSupply * chefBalance * 2;
-        }
-        else if (farms[i].pool.token0 === WBCH[chainId].address) {
+        else if (farms[i].pool.token0 === WMINT[chainId].address) {
           const reserve = Number.parseFloat(farms[i].pool.reserves[0].toFixed());
           tvl = reserve / totalSupply * chefBalance * bchPriceUSD * 2;
         }
-        else if (farms[i].pool.token1 === WBCH[chainId].address) {
+        else if (farms[i].pool.token1 === WMINT[chainId].address) {
           const reserve = Number.parseFloat(farms[i].pool.reserves[1].toFixed());
           tvl = reserve / totalSupply * chefBalance * bchPriceUSD * 2;
         }
@@ -537,8 +245,8 @@ export default function Farm(): JSX.Element {
       const rewardPerBlock = (pool.allocPoint / pool.owner.totalAllocPoint) * sushiPerBlock
 
       const defaultReward = {
-        token: 'MIST',
-        icon: 'https://assets.mistswap.fi/blockchains/smartbch/assets/0x5fA664f69c2A4A3ec94FaC3cBf7049BD9CA73129/logo.png',
+        token: 'MINT',
+        icon: 'https://assets.mintswap.cash/blockchains/mintme/assets/0x5fA664f69c2A4A3ec94FaC3cBf7049BD9CA73129/logo.png',
         rewardPerBlock,
         rewardPerDay: rewardPerBlock * blocksPerDay,
         rewardPrice: +mistPriceUSD,
@@ -611,13 +319,13 @@ export default function Farm(): JSX.Element {
   return (
     <Container id="farm-page" className="h-full py-4 mx-auto lg:grid lg:grid-cols-4 md:py-8 lg:py-12 gap-9" maxWidth="7xl">
       <Head>
-        <title>Farm | Mist</title>
-        <meta key="description" name="description" content="Farm MIST" />
+        <title>Farm | Mint</title>
+        <meta key="description" name="description" content="Farm MINT" />
       </Head>
       <div className={classNames('px-3 md:px-0 lg:block md:col-span-1')}>
         <Menu positionsLength={positions.length} />
         <div className="relative hidden h-80 lg:block">
-          <Image layout="fill" objectFit="contain" objectPosition="bottom" src="/mist-machine.png" alt="" />
+          <Image layout="fill" objectFit="contain" objectPosition="bottom" src="/mint-machine.png" alt="" />
         </div>
       </div>
       <div className={classNames('space-y-6 col-span-4 lg:col-span-3')}>
