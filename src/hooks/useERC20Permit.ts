@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, JSBI, Percent, Token, TradeType, Trade as V2Trade } from '@mistswapdex/sdk'
+import { ChainId, Currency, CurrencyAmount, JSBI, Percent, Token, TradeType, Trade as V2Trade } from '@mintswapcash/sdk'
 import { MIST } from '../config/tokens'
 import { useMemo, useState } from 'react'
 
@@ -30,11 +30,8 @@ const PERMITTABLE_TOKENS: {
     [checksummedTokenAddress: string]: PermitInfo
   }
 } = {
-  [ChainId.SMARTBCH]: {
-    [MIST[ChainId.SMARTBCH].address]: { type: PermitType.AMOUNT, name: 'MistToken' },
-  },
-  [ChainId.SMARTBCH_AMBER]: {
-    [MIST[ChainId.SMARTBCH_AMBER].address]: { type: PermitType.AMOUNT, name: 'MistToken' },
+  [ChainId.MINTME]: {
+    [MINT[ChainId.MINTME].address]: { type: PermitType.AMOUNT, name: 'MistSwap Token' },
   },
 }
 
