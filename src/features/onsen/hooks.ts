@@ -48,6 +48,7 @@ export function useChefContracts(chefs: Chef[]) {
   return chefs.map((chef) => contracts[chef])
 }
 
+
 export function useUserInfo(farm, token) {
   const { account } = useActiveWeb3React()
 
