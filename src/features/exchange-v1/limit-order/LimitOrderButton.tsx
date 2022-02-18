@@ -1,5 +1,5 @@
 import { ApprovalState, useApproveCallback } from '../../../hooks'
-import { BENTOBOX_ADDRESS, ChainId, Currency } from '@mistswapdex/sdk'
+import { BENTOBOX_ADDRESS, ChainId, Currency } from '@mintswapcash/sdk'
 import Button, { ButtonProps } from '../../../components/Button'
 import { Field, setFromBentoBalance } from '../../../state/limit-order/actions'
 import React, { FC, useCallback, useState } from 'react'
