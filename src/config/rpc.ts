@@ -1,8 +1,7 @@
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 
 const RPC = {
-  [ChainId.SMARTBCH]: 'https://smartbch.fountainhead.cash/mainnet',
-  [ChainId.SMARTBCH_AMBER]: 'https://moeing.tech:9545',
+  [ChainId.MINTME]: 'https://node1.mintme.com:443',
 }
 
 export default RPC
