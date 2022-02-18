@@ -1,4 +1,4 @@
-import { ChainId, Token, Currency, CurrencyAmount } from "@mistswapdex/sdk";
+import { ChainId, Token, Currency, CurrencyAmount } from "@mintswapcash/sdk";
 import { BENSWAP_TOKENS } from '../config/tokens'
 import { useTokenBalances } from '../state/wallet/hooks'
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -59,13 +59,8 @@ const useLPTokensState = () => {
         } as LPToken;
 
         const benswapPairs = {
-          [ChainId.SMARTBCH]: {
+          [ChainId.MINTME]: {
           },
-          [ChainId.SMARTBCH_AMBER]: {
-            '0x842692f8A4D0743e942dF5D52155a037327d4f3f': {
-              tokenA: new Token(chainId as ChainId, '0x77beB0D017C743eCa0d22951A3b051A17D50f108', 18, 'EBEN', 'EBEN'),
-              tokenB: new Token(chainId as ChainId, '0x17F4FCF5b6E0A95D4eE331c8529041896A073F9b', 18, 'BCH', 'BCH'),
-            },
           },
         }
 
