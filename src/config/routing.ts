@@ -1,8 +1,8 @@
 import {
-    MIST, XMIST, FLEXUSD
+    MINT, XMINT, FLEXUSD
 } from '../config/tokens'
 // a list of tokens by chain
-import { ChainId, Currency, Token, WNATIVE } from '@mistswapdex/sdk'
+import { ChainId, Currency, Token, WNATIVE } from '@mintswapcash/sdk'
 
 type ChainTokenList = {
   readonly [chainId: number]: Token[]
@@ -16,21 +16,19 @@ const MIRROR_ADDITIONAL_BASES: { [tokenAddress: string]: Token[] } = {
 
 // TODO: SDK should have two maps, WETH map and WNATIVE map.
 const WRAPPED_NATIVE_ONLY: ChainTokenList = {
-  [ChainId.SMARTBCH]: [WNATIVE[ChainId.SMARTBCH]],
-  [ChainId.SMARTBCH_AMBER]: [WNATIVE[ChainId.SMARTBCH_AMBER]],
+  [ChainId.MINTME]: [WNATIVE[ChainId.MINTME]],
 }
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WRAPPED_NATIVE_ONLY,
-  [ChainId.SMARTBCH]: [...WRAPPED_NATIVE_ONLY[ChainId.SMARTBCH], FLEXUSD],
-  [ChainId.SMARTBCH_AMBER]: [...WRAPPED_NATIVE_ONLY[ChainId.SMARTBCH_AMBER]],
+  [ChainId.MINTME]: [...WRAPPED_NATIVE_ONLY[ChainId.MINTME], FLEXUSD],
 }
 
 export const ADDITIONAL_BASES: {
   [chainId: number]: { [tokenAddress: string]: Token[] }
 } = {
-  [ChainId.SMARTBCH]: {
+  [ChainId.MINTME]: {
     ...MIRROR_ADDITIONAL_BASES,
   },
 }
@@ -47,31 +45,23 @@ export const CUSTOM_BASES: {
  * Shows up in the currency select for swap and add liquidity
  */
 export const COMMON_BASES: ChainTokenList = {
-  [ChainId.SMARTBCH]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.SMARTBCH],
+  [ChainId.MINTME]: [
+    ...WRAPPED_NATIVE_ONLY[ChainId.MINTME],
     FLEXUSD,
-    MIST[ChainId.SMARTBCH],
-  ],
-  [ChainId.SMARTBCH_AMBER]: [
-    ...WRAPPED_NATIVE_ONLY[ChainId.SMARTBCH_AMBER],
-    MIST[ChainId.SMARTBCH_AMBER],
+    MINT[ChainId.MINTME],
   ],
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WRAPPED_NATIVE_ONLY,
-  [ChainId.SMARTBCH]: [...WRAPPED_NATIVE_ONLY[ChainId.SMARTBCH], FLEXUSD],
-  [ChainId.SMARTBCH_AMBER]: [...WRAPPED_NATIVE_ONLY[ChainId.SMARTBCH_AMBER]],
+  [ChainId.MINTME]: [...WRAPPED_NATIVE_ONLY[ChainId.MINTME], FLEXUSD],
 }
 
 export const PINNED_PAIRS: {
   readonly [chainId in ChainId]?: [Token, Token][]
 } = {
-  [ChainId.SMARTBCH]: [
-      [MIST[ChainId.SMARTBCH], WNATIVE[ChainId.SMARTBCH]],
-  ],
-  [ChainId.SMARTBCH_AMBER]: [
-      [MIST[ChainId.SMARTBCH_AMBER], WNATIVE[ChainId.SMARTBCH_AMBER]]
+  [ChainId.MINTME]: [
+      [MIST[ChainId.MINTME], WNATIVE[ChainId.MINTME]],
   ],
 }
