@@ -1,4 +1,4 @@
-import { Currency, NATIVE, WNATIVE, currencyEquals } from '@mistswapdex/sdk'
+import { Currency, NATIVE, WNATIVE, currencyEquals } from '@mintswapcash/sdk'
 
 import { AutoColumn } from '../../../components/Column'
 import CurrencyLogo from '../../../components/CurrencyLogo'
