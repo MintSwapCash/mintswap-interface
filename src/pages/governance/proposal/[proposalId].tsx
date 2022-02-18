@@ -74,27 +74,27 @@ export default function Proposal() {
   return (
     <Container id="vote-page" className="py-4 space-y-6 md:py-8 lg:py-12" maxWidth="2xl">
       <Head>
-        <title key="title">Vote | Mist</title>
+        <title key="title">Vote | Mint</title>
         <meta
           key="description"
           name="description"
-          content="Vote using xMIST on community created proposals."
+          content="Vote using xMINT on community created proposals."
         />
-        <meta key="twitter:url" name="twitter:url" content="https://app.mistswap.fi/vote" />
-        <meta key="twitter:title" name="twitter:title" content="VOTE WITH XMIST" />
+        <meta key="twitter:url" name="twitter:url" content="https://app.mintswap.cash/vote" />
+        <meta key="twitter:title" name="twitter:title" content="VOTE WITH XMINT" />
         <meta
           key="twitter:description"
           name="twitter:description"
-          content="Vote using xMIST on community created proposals."
+          content="Vote using xMINT on community created proposals."
         />
-        <meta key="twitter:image" name="twitter:image" content="https://app.mistswap.fi/xmist-governance.png" />
-        <meta key="og:title" property="og:title" content="VOTE WITH XMIST" />
-        <meta key="og:url" property="og:url" content="https://app.mistswap.fi/vote" />
-        <meta key="og:image" property="og:image" content="https://app.mistswap.fi/xmist-governance.png" />
+        <meta key="twitter:image" name="twitter:image" content="https://app.mintswap.cash/xmint-governance.png" />
+        <meta key="og:title" property="og:title" content="VOTE WITH XMINT" />
+        <meta key="og:url" property="og:url" content="https://app.mintswap.cash/vote" />
+        <meta key="og:image" property="og:image" content="https://app.mintswap.cash/xmint-governance.png" />
         <meta
           key="og:description"
           property="og:description"
-          content="Vote using xMIST on community created proposals."
+          content="Vote using xMINT on community created proposals."
         />
       </Head>
 
@@ -191,7 +191,7 @@ export default function Proposal() {
                       <span>{proposal.options[vote.choiceId]}</span>
                     </div>
                     <div className="flex flex-col items-end col-span-2">
-                    <span className="flex items-baseline flex-nowrap">{formatXmist(vote.amount)} <span className="hidden pl-1 text-xs md:flex">xMIST</span></span>
+                    <span className="flex items-baseline flex-nowrap">{formatXmist(vote.amount)} <span className="hidden pl-1 text-xs md:flex">xMINT</span></span>
                     </div>
                   </div>
                 ))}
