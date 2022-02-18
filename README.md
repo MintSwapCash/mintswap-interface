@@ -1,6 +1,6 @@
 # MintSwap Interface
 
-MISTswap Interface is a progressive web application for the MISTswap Protocol.
+MintSwap Interface is a progressive web application for the MISTswap Protocol.
 
 ## Getting started
 
