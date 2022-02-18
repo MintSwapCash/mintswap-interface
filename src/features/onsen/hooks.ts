@@ -9,7 +9,6 @@ import { Chef } from './enum'
 import { NEVER_RELOAD, useSingleCallResult, useSingleContractMultipleData } from '../../state/multicall/hooks'
 import { Dispatch, useCallback, useEffect, useMemo, useState } from 'react'
 import { useMasterChefContract, useMasterChefV2Contract } from '../../hooks/useContract'
-
 import { Contract } from '@ethersproject/contracts'
 import { MIST } from '../../config/tokens'
 import { Zero } from '@ethersproject/constants'
