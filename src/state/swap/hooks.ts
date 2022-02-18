@@ -5,13 +5,13 @@ import {
   CurrencyAmount,
   JSBI,
   Percent,
-  MIST_ADDRESS,
+  MINT_ADDRESS,
   ROUTER_ADDRESS,
   FACTORY_ADDRESS,
   TradeType,
   Trade as V2Trade,
   WNATIVE_ADDRESS,
-} from '@mistswapdex/sdk'
+} from '@mintswapcash/sdk'
 import { DEFAULT_ARCHER_ETH_TIP, DEFAULT_ARCHER_GAS_ESTIMATE } from '../../config/archer'
 import {
   EstimatedSwapCall,
@@ -105,12 +105,8 @@ export function useSwapActionHandlers(): {
 // TODO: Swtich for ours...
 const BAD_RECIPIENT_ADDRESSES: { [chainId: string]: { [address: string]: true } } = {
   [ChainId.SMARTBCH]: {
-    [FACTORY_ADDRESS[ChainId.SMARTBCH]]: true,
-    [ROUTER_ADDRESS[ChainId.SMARTBCH]]: true,
-  },
-  [ChainId.SMARTBCH_AMBER]: {
-    [FACTORY_ADDRESS[ChainId.SMARTBCH_AMBER]]: true,
-    [ROUTER_ADDRESS[ChainId.SMARTBCH_AMBER]]: true,
+    [FACTORY_ADDRESS[ChainId.MINTME]]: true,
+    [ROUTER_ADDRESS[ChainId.MINTME]]: true,
   },
 }
 
