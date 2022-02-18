@@ -1,5 +1,5 @@
 import { BscConnector } from '@binance-chain/bsc-connector'
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 import { FortmaticConnector } from '../entities/FortmaticConnector'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { NetworkConnector } from '../entities/NetworkConnector'
@@ -18,7 +18,7 @@ export function getNetwork(defaultChainId, urls = RPC) {
 }
 
 export const network = new NetworkConnector({
-  defaultChainId: ChainId.SMARTBCH,
+  defaultChainId: ChainId.MINTME,
   urls: RPC,
 })
 
@@ -55,7 +55,7 @@ export const portis = new PortisConnector({
 
 // mainnet only
 export const walletlink = new WalletLinkConnector({
-  url: RPC[ChainId.SMARTBCH],
+  url: RPC[ChainId.MINTME],
   appName: 'MistSwap',
   appLogoUrl: 'https://raw.githubusercontent.com/mistswapdex/art/master/mist/logo-256x256.png',
 })
