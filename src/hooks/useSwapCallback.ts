@@ -443,7 +443,7 @@ export function useSwapCallback(
               const chainNames: {
                 [chainId in ChainId]?: string
               } = {
-                [ChainId.SMARTBCH]: 'smartbch',
+                [ChainId.MINTME]: 'smartbch',
               }
               const chain = chainNames[chainId]
               if (!chain) throw new Error(`Unknown chain ID ${chainId} when building transaction`)
