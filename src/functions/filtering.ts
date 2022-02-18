@@ -1,4 +1,4 @@
-import { Token } from '@mistswapdex/sdk'
+import { Token } from '@mintswapcash/sdk'
 import { TokenInfo } from '@uniswap/token-lists'
 import { isAddress } from './validate'
 import { useMemo } from 'react'
