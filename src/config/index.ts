@@ -1,8 +1,7 @@
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 
 const config = {
-  [ChainId.SMARTBCH]: {},
-  [ChainId.SMARTBCH_AMBER]: {},
+  [ChainId.MINTME]: {},
 }
 
 export default config
