@@ -2,7 +2,7 @@ import {
   ChainId,
   Currency,
   Token,
-} from '@mistswapdex/sdk'
+} from '@mintswapcash/sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { AutoRow } from '../../components/Row'
 import Container from '../../components/Container'
@@ -36,7 +36,7 @@ import { AvailableChainsInfo, chains, Chain, anyswapInfo, SwapInfo} from '../../
 import { NetworkContextName } from '../../constants'
 
 export const DEFAULT_CHAIN_FROM: Chain = chains[0]
-export const DEFAULT_CHAIN_TO: Chain = chains[ChainId.SMARTBCH]
+export const DEFAULT_CHAIN_TO: Chain = chains[ChainId.MINTME]
 export const BridgeChains = chains
 
 export default function Bridge() {
@@ -90,7 +90,7 @@ export default function Bridge() {
 
   const handleChainFrom = useCallback(
     (chain: Chain) => {
-      if (chain.id === ChainId.SMARTBCH) {
+      if (chain.id === ChainId.MINTME) {
         setChainTo(DEFAULT_CHAIN_FROM)
       } else {
         setChainTo(DEFAULT_CHAIN_TO)
@@ -106,7 +106,7 @@ export default function Bridge() {
       if (chainFrom.id == chain.id) {
         changeFrom = chainTo
       }
-      if (changeFrom.id !== ChainId.SMARTBCH && chain.id !== ChainId.SMARTBCH) {
+      if (changeFrom.id !== ChainId.MINTME && chain.id !== ChainId.MINTME) {
         setChainFrom(DEFAULT_CHAIN_TO)
       } else {
         setChainFrom(changeFrom)
@@ -143,8 +143,8 @@ export default function Bridge() {
           feeUsd: tokenToBridge.other.FeeUsd,
           feeBch: feeBch,
           receiveAmount: receiveAmount,
-          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "BCH",
-          to: hopDirection === HopDirection.in ? "BCH" : tokenToBridge.symbol,
+          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "MINTME",
+          to: hopDirection === HopDirection.in ? "MINTME" : tokenToBridge.symbol,
         })
 
         if (!sendAmount) {
@@ -183,8 +183,8 @@ export default function Bridge() {
           feeUsd: tokenToBridge.other.FeeUsd,
           feeBch: feeBch,
           receiveAmount: parseFloat(receiveAmount) || 0.,
-          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "BCH",
-          to: hopDirection === HopDirection.in ? "BCH" : tokenToBridge.symbol,
+          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "MINTME",
+          to: hopDirection === HopDirection.in ? "MINTME" : tokenToBridge.symbol,
         })
 
         if (!receiveAmount) {
@@ -224,8 +224,8 @@ export default function Bridge() {
           setShiftAllowed(allowed)
 
           if (allowed) {
-            const from = hopDirection === HopDirection.in ? methodId : "bch"
-            const to = hopDirection === HopDirection.in ? "bch" : methodId
+            const from = hopDirection === HopDirection.in ? methodId : "mintme"
+            const to = hopDirection === HopDirection.in ? "mintme" : methodId
             const quote = await xaiQuote(from, to)
 
             tokenTo.other.MinimumSwap = parseFloat(quote.min)
@@ -332,13 +332,13 @@ export default function Bridge() {
       ? i18n._(t`Insufficient Balance`)
       : i18n._(t`Bridge ${currency0?.symbol}`)
 
-  const anyswapChains = Object.keys(anyswapInfo).map(val => parseInt(val)) //[ChainId.SMARTBCH]
+  const anyswapChains = Object.keys(anyswapInfo).map(val => parseInt(val)) //[ChainId.MINTME]
   let availableChains = Object.keys(anyswapInfo || {})
     .map((r) => parseInt(r))
     .filter((r) => anyswapChains.includes(r))
 
   // put smartbch on the top
-  availableChains = [ChainId.SMARTBCH, ...availableChains.filter(val => val !== ChainId.SMARTBCH)]
+  availableChains = [ChainId.SMARTBCH, ...availableChains.filter(val => val !== ChainId.MINTME)]
 
   return (
     <>
@@ -348,7 +348,7 @@ export default function Bridge() {
         onDismiss={() => setShowBridgeModal(false)} />)}
 
       <Head>
-        <title>{i18n._(t`Bridge`)} | MISTswap</title>
+        <title>{i18n._(t`Bridge`)} | MINTswap</title>
         <meta key="description" name="description" content="Bridge" />
       </Head>
 
@@ -412,15 +412,6 @@ export default function Bridge() {
               </div>
             </div>
 
-            {helpVisible && (<div className="p-3 mx-5 rounded bg-dark-800">
-              <p>{i18n._(t`This service helps you to try out the SmartBCH network by converting your assets to BCH and bridging it to our network`)}</p>
-              <p>{i18n._(t`Our bridge utilizes a two-step process:`)}</p>
-              <p className="pl-4">{i18n._(t`1) asset coversion from anything to BCH with`)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://sideshift.ai">SideShift.ai</a>.</p>
-              <p className="pl-4">{i18n._(t`2) bridging the BCH to SmartBCH with `)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://hop.cash">hop.cash</a></p>
-              <p>{i18n._(t`If you experience any issues with SideShift conversion, note the order id, visit their website and ask for support there or in their telegram group: `)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://t.me/sideshift">https://t.me/sideshift</a>.</p>
-              <p>{i18n._(t`For issues related to hop cash, note the BCH and SBCH transaction ids and ask for support here:`)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://t.me/hopcash">https://t.me/hopcash</a>.</p>
-            </div>)}
-
             <div className="flex flex-row items-center justify-between text-center">
               <ChainSelect
                 chains={chains}
@@ -432,18 +423,18 @@ export default function Bridge() {
               />
               <button className={'sm:m-6'}>
                 <ArrowRight size="32" onClick={() => {
-                  if (chainTo.id === ChainId.SMARTBCH) {
+                  if (chainTo.id === ChainId.MINTME) {
                     setChainTo(chains[0])
-                    setChainFrom(chains[ChainId.SMARTBCH])
+                    setChainFrom(chains[ChainId.MINTME])
                   } else {
-                    setChainTo(chains[ChainId.SMARTBCH])
+                    setChainTo(chains[ChainId.MINTME])
                     setChainFrom(chains[0])
                   }
                 }} />
               </button>
               <ChainSelect
                 chains={chains}
-                availableChains={chainFrom.id == ChainId.SMARTBCH ? availableChains : [ChainId.SMARTBCH]}
+                availableChains={chainFrom.id == ChainId.MINTME ? availableChains : [ChainId.MINTME]}
                 label={i18n._(t`To`)}
                 chain={chainTo}
                 otherChain={chainFrom}
@@ -455,7 +446,7 @@ export default function Bridge() {
               <DualChainCurrencyInputPanel
                 label={i18n._(t`You send:`)}
                 value={sendAmount}
-                currency={chainFrom.id == ChainId.SMARTBCH ? BCH : currency0}
+                currency={chainFrom.id == ChainId.MINTME ? MINTME : currency0}
                 onUserInput={handleSendAmount}
                 onMax={(amount) => handleSendAmount(amount)}
                 onCurrencySelect={(currency) => {
@@ -463,14 +454,14 @@ export default function Bridge() {
                 }}
                 chainFrom={chainFrom}
                 chainTo={chainTo}
-                tokenList={chainFrom.id == ChainId.SMARTBCH ? [BCH] : tokenList}
+                tokenList={chainFrom.id == ChainId.MINTME ? [MINTME] : tokenList}
                 chainList={anyswapInfo}
               />
 
               <DualChainCurrencyInputPanel
                 label={i18n._(t`You receive:`)}
                 value={receiveAmount}
-                currency={chainTo.id == ChainId.SMARTBCH ? BCH : currency0}
+                currency={chainTo.id == ChainId.MINTME ? MINTME : currency0}
                 onUserInput={handleReceiveAmount}
                 onMax={(amount) => handleReceiveAmount(amount)}
                 onCurrencySelect={(currency) => {
@@ -478,7 +469,7 @@ export default function Bridge() {
                 }}
                 chainFrom={chainFrom}
                 chainTo={chainTo}
-                tokenList={chainTo.id == ChainId.SMARTBCH ? [BCH] : tokenList}
+                tokenList={chainTo.id == ChainId.MINTME ? [MINTME] : tokenList}
                 chainList={anyswapInfo}
               >
                 <div className={classNames('')}>
@@ -565,7 +556,7 @@ export default function Bridge() {
               justify={'center'}
               gap={'0 3px'}
             >
-              {i18n._(t`Powered by SideShift.ai and hop.cash`)}
+              {i18n._(t`Powered by MintSwap`)}
             </AutoRow>
           </div>
         </DoubleGlowShadow>
