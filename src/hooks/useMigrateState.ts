@@ -53,9 +53,9 @@ const useMigrateState: () => MigrateState = () => {
       console.log('onMigrate', units)
       let exchange;
 
-      if (chainId === ChainId.SMARTBCH) {
-        exchange = "BenSwap";
-      } else if (chainId === ChainId.SMARTBCH_AMBER) {
+      if (chainId === ChainId.MINTME) {
+        exchange = "MintSwap";
+      } else if (chainId === ChainId.MINTME) {
         exchange = "BenSwap Amber";
       }
 
