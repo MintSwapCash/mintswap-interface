@@ -1,4 +1,4 @@
-import { ChainId, Currency, WNATIVE } from '@mistswapdex/sdk'
+import { ChainId, Currency, WNATIVE } from '@mintswapcash/sdk'
 import React, { FunctionComponent, useMemo } from 'react'
 
 import Logo from '../Logo'
@@ -6,13 +6,12 @@ import { WrappedTokenInfo } from '../../state/lists/wrappedTokenInfo'
 import useHttpLocations from '../../hooks/useHttpLocations'
 
 const BLOCKCHAIN = {
-  [ChainId.SMARTBCH]: 'smartbch',
-  [ChainId.SMARTBCH_AMBER]: 'amber',
+  [ChainId.MINTME]: 'mintme',
 }
 
 function getCurrencySymbol(currency) {
-  if (currency.symbol === 'WBCH') {
-    return 'bch'
+  if (currency.symbol === 'WMINT') {
+    return 'MINTME'
   }
   return currency.symbol.toLowerCase()
 }
@@ -20,10 +19,10 @@ function getCurrencySymbol(currency) {
 export function getCurrencyLogoUrls(currency) {
   const urls = []
 
-  urls.push(`https://raw.githubusercontent.com/mistswapdex/icons/master/token/${getCurrencySymbol(currency)}.jpg`)
+  urls.push(`https://raw.githubusercontent.com/prsstech/icons/master/token/${getCurrencySymbol(currency)}.jpg`)
   if (currency.chainId in BLOCKCHAIN) {
     urls.push(
-      `https://assets.mistswap.fi/blockchains/smartbch/assets/${
+      `https://assets.mintswap.cash/blockchains/mintme/assets/${
         currency.address
       }/logo.png`
     )
@@ -37,11 +36,10 @@ export function getCurrencyLogoUrls(currency) {
   return urls
 }
 
-const BitcoinCashLogo = 'https://raw.githubusercontent.com/mistswapdex/icons/master/token/bch.jpg'
+const BitcoinCashLogo = 'https://raw.githubusercontent.com/prsstech/icons/master/token/bch.jpg'
 
 const LOGO: { readonly [chainId in ChainId]?: string } = {
-  [ChainId.SMARTBCH]: BitcoinCashLogo,
-  [ChainId.SMARTBCH_AMBER]: BitcoinCashLogo,
+  [ChainId.MINTME]: BitcoinCashLogo,
 }
 
 interface CurrencyLogoProps {
@@ -52,7 +50,7 @@ interface CurrencyLogoProps {
   squared?: boolean
 }
 
-const unknown = 'https://raw.githubusercontent.com/mistswapdex/icons/master/token/unknown.png'
+const unknown = 'https://raw.githubusercontent.com/prsstech/icons/master/token/unknown.png'
 
 const CurrencyLogo: FunctionComponent<CurrencyLogoProps> = ({
   currency,
