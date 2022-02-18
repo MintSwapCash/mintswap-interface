@@ -54,8 +54,7 @@ const FarmListItem = ({ farm }) => {
 
   const APPROVAL_ADDRESSES = {
     [Chef.MASTERCHEF]: {
-      [ChainId.SMARTBCH]: MASTERCHEF_ADDRESS[ChainId.SMARTBCH],
-      [ChainId.SMARTBCH_AMBER]: MASTERCHEF_ADDRESS[ChainId.SMARTBCH_AMBER],
+      [ChainId.MINTME]: MASTERCHEF_ADDRESS[ChainId.MINTME],
     },
   }
 
