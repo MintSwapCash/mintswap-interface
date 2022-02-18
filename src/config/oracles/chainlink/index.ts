@@ -1,4 +1,4 @@
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 
 export type ChainlinkPriceFeedMap = {
   readonly [address: string]: {
