@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@mistswapdex/sdk'
+import { ChainId, Token } from '@mintswapcash/sdk'
 
 import { AddressZero } from '@ethersproject/constants'
 import { CHAINLINK_PRICE_FEED_MAP } from '../config/oracles/chainlink'
@@ -20,7 +20,7 @@ export abstract class AbstractOracle implements Oracle {
   data = ''
   warning = ''
   error = ''
-  chainId = ChainId.SMARTBCH
+  chainId = ChainId.MINTME
   pair: any
   tokens: Token[]
   valid = false
