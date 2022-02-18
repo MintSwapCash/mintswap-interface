@@ -1,4 +1,4 @@
-import { ChainId } from '@MINTSWAPCASH/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 
 export enum Feature {
   AMM = 'AMM',
