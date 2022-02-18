@@ -64,7 +64,6 @@ const FarmListItem = ({ farm }) => {
   const [approvalState, approve] = useApproveCallback(typedDepositValue, APPROVAL_ADDRESSES[farm.chef][chainId])
 
   const { deposit, withdraw, harvest } = useMasterChef(farm.chef)
-
   const poolFraction = (Number.parseFloat(amount?.toFixed()) / farm.chefBalance) || 0
   const chefPart = farm.chefBalance / farm.totalSupply;
   const token0Reserve = farm.pool.reserves ? (farm.pool.reserves.reserve0 as BigNumber).toString() : 0
