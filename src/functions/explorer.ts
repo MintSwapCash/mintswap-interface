@@ -1,9 +1,9 @@
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 
 // Multichain Explorer
 const builders = {
   smartscan: (chainName: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    const prefix = `https://smartscan.cash`
+    const prefix = `https://mintme.com/explorer/`
     switch (type) {
       case 'transaction':
         return `${prefix}/tx/${data}`
@@ -21,12 +21,8 @@ interface ChainObject {
 }
 
 const chains: ChainObject = {
-  [ChainId.SMARTBCH]: {
+  [ChainId.MINTME]: {
     chainName: '',
-    builder: builders.smartscan,
-  },
-  [ChainId.SMARTBCH_AMBER]: {
-    chainName: 'amber',
     builder: builders.smartscan,
   },
 }
