@@ -1,5 +1,5 @@
 import { AddressZero } from '@ethersproject/constants'
-import { ChainId, FLEXUSD_ADDRESS } from '@mistswapdex/sdk'
+import { ChainId, FLEXUSD_ADDRESS } from '@mintswapcash/sdk'
 
 type Currency = { address: string; decimals: number }
 
@@ -7,7 +7,7 @@ type Currency = { address: string; decimals: number }
 // TODO: Check decimals and finish table
 export const USD_CURRENCY: { [chainId in ChainId]?: Currency } = {
   [ChainId.SMARTBCH]: {
-    address: FLEXUSD_ADDRESS[ChainId.SMARTBCH],
+    address: FLEXUSD_ADDRESS[ChainId.MINTME],
     decimals: 18,
   },
 }
