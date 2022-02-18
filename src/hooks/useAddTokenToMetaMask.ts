@@ -1,4 +1,4 @@
-import { Currency, Token } from '@mistswapdex/sdk'
+import { Currency, Token } from '@mintswapcash/sdk'
 import { useCallback, useState } from 'react'
 
 import { getCurrencyLogoUrls } from './../components/CurrencyLogo'
@@ -26,7 +26,7 @@ export default function useAddTokenToMetaMask(currencyToAdd: Currency | undefine
               address: token.address,
               symbol: token.symbol,
               decimals: token.decimals,
-              image: `https://assets.mistswap.fi/blockchains/smartbch/assets/${token.address}/logo.png`,
+              image: `https://assets.mintswap.cash/blockchains/mintme/assets/${token.address}/logo.png`,
             },
           },
         })
