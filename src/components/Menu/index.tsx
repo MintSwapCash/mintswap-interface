@@ -11,23 +11,23 @@ import { useLingui } from '@lingui/react'
 const items = (i18n: I18n) => [
   {
     name: i18n._(t`Docs`),
-    description: i18n._(t`Documentation for users of MIST.`),
-    href: 'https://docs.mistswap.fi',
+    description: i18n._(t`Documentation for users of Mint.`),
+    href: 'https://docs.mintswap.cash',
   },
   {
     name: i18n._(t`Open Source`),
-    description: i18n._(t`MIST is a supporter of Open Source.`),
-    href: 'https://github.com/mistswapdex',
+    description: i18n._(t`Mint is a supporter of Open Source.`),
+    href: 'https://github.com/prsstech',
   },
   {
     name: i18n._(t`Discord`),
     description: i18n._(t`Join the community on Discord.`),
-    href: 'https://discord.gg/xFTnQEzu9T',
+    href: 'https://discord.gg/',
   },
   {
     name: i18n._(t`Telegram`),
     description: i18n._(t`Join the community on Telegram.`),
-    href: 'https://t.me/MistSwapOfficial',
+    href: 'https://t.me/',
   },
 ]
 
