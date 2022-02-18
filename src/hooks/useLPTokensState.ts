@@ -1,5 +1,5 @@
 import { ChainId, Token, Currency, CurrencyAmount } from "@mintswapcash/sdk";
-import { BENSWAP_TOKENS } from '../config/tokens'
+import { MINTSWAP_TOKENS } from '../config/tokens'
 import { useTokenBalances } from '../state/wallet/hooks'
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -40,7 +40,7 @@ const useLPTokensState = () => {
   const [loading, setLoading] = useState(true);
   const updatingLPTokens = useRef(false);
 
-  const relevantTokenBalances = useTokenBalances(account ?? undefined, BENSWAP_TOKENS[chainId])
+  const relevantTokenBalances = useTokenBalances(account ?? undefined, MINTSWAP_TOKENS[chainId])
 
   const updateLPTokens = useCallback(async () => {
     try {
@@ -58,16 +58,16 @@ const useLPTokensState = () => {
           version: "v2",
         } as LPToken;
 
-        const benswapPairs = {
+        const mintswapPairs = {
           [ChainId.MINTME]: {
           },
           },
         }
 
-        if (benswapPairs[chainId] && benswapPairs[chainId][address]) {
+        if (mintswapPairs[chainId] && mintswapPairs[chainId][address]) {
           console.log('PAIR FOUND')
-          data.tokenA = benswapPairs[chainId][address].tokenA;
-          data.tokenB = benswapPairs[chainId][address].tokenB;
+          data.tokenA = mintswapPairs[chainId][address].tokenA;
+          data.tokenB = mintswapPairs[chainId][address].tokenB;
         }
 
         lpTokens.push(data)
