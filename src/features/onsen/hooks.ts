@@ -33,7 +33,7 @@ export function useChefContract(chef: Chef) {
 }
 
 const CHEFS = {
-  [ChainId.SMARTBCH]: [Chef.MASTERCHEF, Chef.MASTERCHEF_V2],
+  [ChainId.MINTME]: [Chef.MASTERCHEF, Chef.MASTERCHEF_V2],
 }
 
 export function useChefContracts(chefs: Chef[]) {
@@ -88,7 +88,7 @@ export function usePendingSushi(farm) {
 
   const amount = value ? JSBI.BigInt(value.toString()) : undefined
 
-  return amount ? CurrencyAmount.fromRawAmount(MIST[chainId], amount) : undefined
+  return amount ? CurrencyAmount.fromRawAmount(MINT[chainId], amount) : undefined
 }
 
 export function usePendingToken(farm, contract) {
