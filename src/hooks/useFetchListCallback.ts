@@ -16,7 +16,7 @@ export function useFetchListCallback(): (listUrl: string, sendDispatch?: boolean
 
   const ensResolver = useCallback(
     (ensName: string) => {
-      if (!library || chainId !== ChainId.SMARTBCH) {
+      if (!library || chainId !== ChainId.MINTME) {
         if (chainId === ChainId.SMARTBCH) {
           const networkLibrary = getNetworkLibrary()
           if (networkLibrary) {
