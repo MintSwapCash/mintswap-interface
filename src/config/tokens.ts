@@ -1,9 +1,9 @@
 import { ChainId, MINT_ADDRESS, BAR_ADDRESS, Token, WMINT} from '@mintswapcash/sdk'
 
-export const FLEXUSD = new Token(ChainId.SMARTBCH, '0xe249f3537af85cef70dfe35cfa12062f7a43d95a', 18, 'flexUSD', 'flexUSD')
+export const FLEXUSD = new Token(ChainId.MINTME, '0xe249f3537af85cef70dfe35cfa12062f7a43d95a', 18, 'flexUSD', 'flexUSD')
 
 export const XMINT: ChainTokenMap = {
-    [ChainId.SMARTBCH]: new Token(ChainId.SMARTBCH, BAR_ADDRESS[ChainId.SMARTBCH], 18, 'xMINT', 'MintSwap Bar'),
+    [ChainId.MINTME]: new Token(ChainId.MINTME, BAR_ADDRESS[ChainId.MINTME], 18, 'xMINT', 'MintSwap Bar'),
 }
 
 type ChainTokenMap = {
@@ -24,6 +24,6 @@ type ChainTokenMapList = {
 
 // These are available for migrate
 export const MINTSWAP_TOKENS: ChainTokenMapList = {
-  [ChainId.SMARTBCH]: [
+  [ChainId.MINTME]: [
   ],
 }
