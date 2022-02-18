@@ -3,13 +3,13 @@ import {
   ChainId,
   Currency,
   CurrencyAmount,
-  SmartBCH,
+  MINTME,
   JSBI,
   Percent,
   Router,
   TradeType,
   Trade as V2Trade,
-} from '@mistswapdex/sdk'
+} from '@mintswapcash/sdk'
 import { arrayify, hexlify, splitSignature } from '@ethersproject/bytes'
 import { isAddress, isZero } from '../functions/validate'
 import { useFactoryContract, useRouterContract } from './useContract'
@@ -122,7 +122,7 @@ export function useSwapCallArguments(
             allowedSlippage,
             recipient,
             ttl: deadline.toNumber(),
-            ethTip: CurrencyAmount.fromRawAmount(SmartBCH.onChain(ChainId.SMARTBCH), archerETHTip),
+            ethTip: CurrencyAmount.fromRawAmount(MINTME.onChain(ChainId.MINTME), archerETHTip),
           })
         )
       }
