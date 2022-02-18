@@ -23,7 +23,7 @@ import { useIsUserAddedToken } from '../../hooks/Tokens'
 import { useLingui } from '@lingui/react'
 import { formatNumberScale } from '../../functions'
 import { useWeb3React } from '@web3-react/core'
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 import Logo from '../../components/Logo'
 
 function currencyKey(currency: Currency): string {
@@ -111,7 +111,7 @@ function CurrencyRow({
   const { account, chainId, library, activate } = useWeb3React()
   const key = currencyKey(currency)
   const useMultichainCurrencyBalance = (chainId, account, currency) => {
-    if (chainId === ChainId.SMARTBCH) {
+    if (chainId === ChainId.MINTME) {
       return useCurrencyBalance(account, currency)
     }
     return CurrencyAmount.fromRawAmount(currency, 0)
