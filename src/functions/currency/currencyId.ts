@@ -1,7 +1,7 @@
-import { ChainId, Currency } from '@mistswapdex/sdk'
+import { ChainId, Currency } from '@mintswapcash/sdk'
 
 export function currencyId(currency: Currency): string {
-  if (currency.isNative) return 'BCH'
+  if (currency.isNative) return 'MINTME'
 
   if (currency.isToken) return currency.address
   throw new Error('invalid currency')
