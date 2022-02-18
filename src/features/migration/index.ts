@@ -1,3 +1,3 @@
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 
-export const MigrationSupported = [ChainId.SMARTBCH, ChainId.SMARTBCH_AMBER]
+export const MigrationSupported = [ChainId.MINTME]
