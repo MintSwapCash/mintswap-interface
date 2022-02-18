@@ -1,11 +1,11 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { NetworkConnector } from '../entities/NetworkConnector'
 import RPC from './rpc'
 
 export const network = new NetworkConnector({
-  defaultChainId: ChainId.SMARTBCH,
+  defaultChainId: ChainId.MINTME,
   urls: RPC,
 })
 
@@ -53,8 +53,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
         bridge: 'https://bridge.walletconnect.org',
         qrcode: true,
         supportedChainIds: [
-          ChainId.SMARTBCH,
-          ChainId.SMARTBCH_AMBER,
+          ChainId.MINTME,
         ],
       })
     },
@@ -70,8 +69,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     connector: async () => {
       const KeystoneConnector = (await import('@keystonehq/keystone-connector')).KeystoneConnector
       return new KeystoneConnector({
-        chainId: ChainId.SMARTBCH,
-        url: RPC[ChainId.SMARTBCH],
+        chainId: ChainId.MINTME,
       })
     },
     name: 'Keystone',
@@ -85,9 +83,8 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     connector: async () => {
       const LatticeConnector = (await import('@web3-react/lattice-connector')).LatticeConnector
       return new LatticeConnector({
-        chainId: ChainId.SMARTBCH,
-        url: RPC[ChainId.SMARTBCH],
-        appName: 'MistSwap',
+        chainId: ChainId.MINTME,
+        appName: 'MintSwap',
       })
     },
     name: 'Lattice',
@@ -101,9 +98,9 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     connector: async () => {
       const WalletLinkConnector = (await import('@web3-react/walletlink-connector')).WalletLinkConnector
       return new WalletLinkConnector({
-        url: RPC[ChainId.SMARTBCH],
-        appName: 'MistSwap',
-        appLogoUrl: 'https://raw.githubusercontent.com/mistswapdex/art/master/sushi/logo-256x256.png',
+        url: RPC[ChainId.MINTME],
+        appName: 'MintSwap',
+        appLogoUrl: 'https://raw.githubusercontent.com/prsstech/art/master/sushi/logo-256x256.png',
       })
     },
     name: 'Coinbase Wallet',
@@ -141,7 +138,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
       const PortisConnector = (await import('@web3-react/portis-connector')).PortisConnector
       return new PortisConnector({
         dAppId: process.env.NEXT_PUBLIC_PORTIS_ID ?? '',
-        networks: [ChainId.SMARTBCH],
+        networks: [ChainId.MINTME],
       })
     },
     name: 'Portis',
@@ -155,7 +152,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     connector: async () => {
       const TorusConnector = (await import('@web3-react/torus-connector')).TorusConnector
       return new TorusConnector({
-        chainId: ChainId.SMARTBCH,
+        chainId: ChainId.MINTME,
       })
     },
     name: 'Torus',
