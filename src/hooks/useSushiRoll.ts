@@ -15,9 +15,9 @@ const useSushiRoll = (version: "v1" | "v2" = "v2") => {
 
   let from = "";
 
-  if (chainId === ChainId.SMARTBCH) {
-    from = "BenSwap";
-  } else if (chainId === ChainId.SMARTBCH_AMBER) {
+  if (chainId === ChainId.MINTME) {
+    from = "MintSwap";
+  } else if (chainId === ChainId.MINTME) {
     from = "BenSwap";
   }
 
