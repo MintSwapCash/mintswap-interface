@@ -22,7 +22,7 @@ export default function useArcherMinerTips(): { status: string; data: T } {
   useEffect(() => {
     const fetchData = async () => {
       setStatus('fetching')
-      const response = await fetch(ARCHER_GAS_URI[ChainId.SMARTBCH], {
+      const response = await fetch(ARCHER_GAS_URI[ChainId.MINTME], {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
