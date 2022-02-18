@@ -1,4 +1,4 @@
-import { JSBI, Percent } from '@mistswapdex/sdk'
+import { JSBI, Percent } from '@mintswapcash/sdk'
 
 import { basisPointsToPercent } from './basisPointsToPercent'
 
