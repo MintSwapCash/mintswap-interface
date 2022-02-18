@@ -156,8 +156,8 @@ export default function WalletModal({
 
   const switchToSmartBch = async () => {
     // `library` context here is invalid, we use the direct communiaction with Metamask via window.ethereum
-    const params = SUPPORTED_NETWORKS[ChainId.SMARTBCH]
-    cookie.set('chainId', ChainId.SMARTBCH)
+    const params = SUPPORTED_NETWORKS[ChainId.MINTME]
+    cookie.set('chainId', ChainId.MINTME)
 
     const ethereum = window.ethereum as any;
     try {
