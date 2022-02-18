@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Token } from '@mistswapdex/sdk'
+import { Currency, CurrencyAmount, Token } from '@mintswapcash/sdk'
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { RowBetween, RowFixed } from '../../components/Row'
 
@@ -24,7 +24,7 @@ import { useIsUserAddedToken } from '../../hooks/Tokens'
 import { useLingui } from '@lingui/react'
 
 function currencyKey(currency: Currency): string {
-  return currency.isToken ? currency.address : 'BCH'
+  return currency.isToken ? currency.address : 'MINTME'
 }
 
 const Tag = styled.div`
