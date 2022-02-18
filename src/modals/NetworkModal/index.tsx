@@ -2,7 +2,7 @@ import { NETWORK_ICON, NETWORK_LABEL } from '../../config/networks'
 import { useModalOpen, useNetworkModalToggle } from '../../state/application/hooks'
 
 import { ApplicationModal } from '../../state/application/actions'
-import { ChainId } from '@mistswapdex/sdk'
+import { ChainId } from '@mintswapcash/sdk'
 import Image from 'next/image'
 import Modal from '../../components/Modal'
 import ModalHeader from '../../components/ModalHeader'
@@ -25,27 +25,16 @@ export const SUPPORTED_NETWORKS: {
     blockExplorerUrls: string[]
   }
 } = {
-  [ChainId.SMARTBCH]: {
-    chainId: '0x2710',
-    chainName: 'SmartBCH',
+  [ChainId.MINTME]: {
+    chainId: '24734',
+    chainName: 'MINTME',
     nativeCurrency: {
-      name: 'Bitcoin Cash',
-      symbol: 'BCH',
+      name: 'MINTME',
+      symbol: 'MINTME',
       decimals: 18,
     },
-    rpcUrls: ['https://smartbch.fountainhead.cash/mainnet'],
-    blockExplorerUrls: ['https://smartscan.cash'],
-  },
-  [ChainId.SMARTBCH_AMBER]: {
-    chainId: '0x2711',
-    chainName: 'Amber Testnet',
-    nativeCurrency: {
-      name: 'Bitcoin Cash',
-      symbol: 'BCH',
-      decimals: 18,
-    },
-    rpcUrls: ['http://35.220.203.194:8545'],
-    blockExplorerUrls: ['https://smartscan.cash'],
+    rpcUrls: ['https://node1.mintme.com:443'],
+    blockExplorerUrls: ['https://mintme.com/explorer/'],
   },
 }
 
@@ -66,7 +55,7 @@ export default function NetworkModal(): JSX.Element | null {
       </div>
 
       <div className="grid grid-flow-row-dense grid-cols-1 gap-5 overflow-y-auto md:grid-cols-2">
-        {[ChainId.SMARTBCH].map((key: ChainId, i: number) => {
+        {[ChainId.MINTME].map((key: ChainId, i: number) => {
           return (
             <button
               key={i}
@@ -74,7 +63,7 @@ export default function NetworkModal(): JSX.Element | null {
                 toggleNetworkModal()
                 const params = SUPPORTED_NETWORKS[key]
                 cookie.set('chainId', key)
-                if (key === ChainId.SMARTBCH) {
+                if (key === ChainId.MINTME) {
                   library?.send('wallet_switchEthereumChain', [{ chainId: params.chainId }, account])
                 } else {
                   library?.send('wallet_addEthereumChain', [params, account])
