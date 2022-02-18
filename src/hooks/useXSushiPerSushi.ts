@@ -2,12 +2,12 @@ import { request } from 'graphql-request'
 import useSWR from 'swr'
 
 const QUERY = `{
-    bar(id: "0xc41c680c60309d4646379ed62020c534eb67b6f4") {
+    bar(id: "0x584cd161a2263b62b5d3d267440328b7d2abf319") {
       ratio
     }
 }`
 
-const fetcher = (query) => request('https://thegraph.mistswap.fi/subgraphs/name/mistswap/bar', query)
+const fetcher = (query) => request('https://thegraph.mintswap.cash/subgraphs/name/mistswap/bar', query)
 
 // Returns ratio of XSushi:Sushi
 export default function useSushiPerXSushi(parse = true) {
