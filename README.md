@@ -1,4 +1,4 @@
-# MISTswap Interface
+# MintSwap Interface
 
 MISTswap Interface is a progressive web application for the MISTswap Protocol.
 
