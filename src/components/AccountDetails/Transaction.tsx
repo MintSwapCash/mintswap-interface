@@ -1,4 +1,4 @@
-import { ChainId, CurrencyAmount, SmartBCH } from '@mistswapdex/sdk'
+import { ChainId, CurrencyAmount, SmartBCH } from '@mintswapcash/sdk'
 import { CheckCircleIcon, ExclamationIcon, XCircleIcon } from '@heroicons/react/outline'
 import React, { FC, useCallback, useMemo } from 'react'
 
@@ -105,9 +105,9 @@ const Transaction: FC<{ hash: string }> = ({ hash }) => {
       {archer && (
         <Typography variant="sm" weight={400} className="flex items-center justify-between pb-1 text-decoration-none">
           {`#${archer.nonce} - Tip ${CurrencyAmount.fromRawAmount(
-            SmartBCH.onChain(ChainId.SMARTBCH),
+            MINTME.onChain(ChainId.MINTME),
             archer.ethTip
-          ).toSignificant(6)} BCH`}
+          ).toSignificant(6)} MINTME`}
           {pending ? (
             <>
               {secondsUntilDeadline >= 60 ? (
