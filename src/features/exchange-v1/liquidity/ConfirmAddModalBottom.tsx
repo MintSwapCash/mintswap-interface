@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Fraction, Percent } from '@mistswapdex/sdk'
+import { Currency, CurrencyAmount, Fraction, Percent } from '@mintswapcash/sdk'
 
 import Button from '../../../components/Button'
 import { Field } from '../../../state/mint/actions'
