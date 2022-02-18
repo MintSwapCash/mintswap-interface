@@ -1,4 +1,4 @@
-import { ChainId } from "@mistswapdex/sdk"
+import { ChainId } from "@mintswapcash/sdk"
 import { default as bridge } from './bridge.json';
 
 export type Chain = {
@@ -74,7 +74,7 @@ export type SwapInfo = {
 }
 
 export const bridgeData: BridgeDataInfo[] = bridge;
-export const ourTokenInfo = { Symbol: "BCH", Name: "Bitcoin Cash", Decimals: 18, ContractAddress: "bch" } as AnyswapTokenInfo
+export const ourTokenInfo = { Symbol: "MINTME", Name: "MINTME", Decimals: 18, ContractAddress: "mintme" } as AnyswapTokenInfo
 
 export const anyswapInfo: AnyswapTokensMap = (() => {
   const data = {}
@@ -95,7 +95,7 @@ export const anyswapInfo: AnyswapTokensMap = (() => {
         } as AnyswapTokenInfo,
         DestToken: ourTokenInfo,
         PairID: val.methodId,
-        destChainID: String(ChainId.SMARTBCH),
+        destChainID: String(ChainId.MINTME),
         srcChainID: String(val.chainId),
         logoUrl: val.logoUrl,
         name: val.title,
@@ -158,10 +158,10 @@ export const anyswapInfo: AnyswapTokensMap = (() => {
     }
   })
 
-  const nativeBch = result[0]["bch"]
+  const nativeBch = result[0]["mintme"]
 
   bridgeData.forEach(val => {
-    result[ChainId.SMARTBCH][val.methodId] = {
+    result[ChainId.MINTME][val.methodId] = {
       destChainID: String(val.chainId),
       id: val.methodId,
       logoUrl: val.logoUrl,
