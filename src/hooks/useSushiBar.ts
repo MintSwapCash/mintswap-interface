@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Token } from '@mistswapdex/sdk'
+import { Currency, CurrencyAmount, Token } from '@mintswapcash/sdk'
 
 import { useCallback } from 'react'
 import { useSushiBarContract } from './useContract'
@@ -16,7 +16,7 @@ const useSushiBar = () => {
           const tx = await barContract?.enter(amount?.quotient.toString(), {
             gasPrice: getGasPrice(),
           })
-          return addTransaction(tx, { summary: 'Staked MIST' })
+          return addTransaction(tx, { summary: 'Staked MINT' })
         } catch (e) {
           return e
         }
