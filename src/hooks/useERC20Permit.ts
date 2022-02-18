@@ -1,5 +1,5 @@
 import { ChainId, Currency, CurrencyAmount, JSBI, Percent, Token, TradeType, Trade as V2Trade } from '@mintswapcash/sdk'
-import { MIST } from '../config/tokens'
+import { MINT } from '../config/tokens'
 import { useMemo, useState } from 'react'
 
 import { splitSignature } from '@ethersproject/bytes'
@@ -31,7 +31,7 @@ const PERMITTABLE_TOKENS: {
   }
 } = {
   [ChainId.MINTME]: {
-    [MINT[ChainId.MINTME].address]: { type: PermitType.AMOUNT, name: 'MistSwap Token' },
+    [MINT[ChainId.MINTME].address]: { type: PermitType.AMOUNT, name: 'MintSwap Token' },
   },
 }
 
@@ -240,7 +240,7 @@ export function useERC20Permit(
 
 const REMOVE_V2_LIQUIDITY_PERMIT_INFO: PermitInfo = {
   version: '1',
-  name: 'MISTswap LP Token',
+  name: 'MintSwap LP Token',
   type: PermitType.AMOUNT,
 }
 
