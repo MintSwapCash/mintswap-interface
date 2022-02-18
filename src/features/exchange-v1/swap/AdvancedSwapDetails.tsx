@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, SmartBCH, Percent, TradeType, Trade as V2Trade } from '@mistswapdex/sdk'
+import { ChainId, Currency, CurrencyAmount, MINTME, Percent, TradeType, Trade as V2Trade } from '@mintswapcash/sdk'
 import React, { useMemo } from 'react'
 import { RowBetween, RowFixed } from '../../../components/Row'
 
@@ -89,9 +89,9 @@ export function AdvancedSwapDetails({ trade, allowedSlippage, minerBribe }: Adva
 
       <RowBetween>
         <RowFixed>
-          <div className="text-sm text-secondary">{i18n._(t`xMIST Fee`)}</div>
+          <div className="text-sm text-secondary">{i18n._(t`xMINT Fee`)}</div>
           <QuestionHelper
-            text={i18n._(t`A portion of each trade (0.05%) goes to xMIST holders as a protocol incentive.`)}
+            text={i18n._(t`A portion of each trade (0.05%) goes to xMINT holders as a protocol incentive.`)}
           />
         </RowFixed>
         <div className="text-sm font-bold text-high-emphesis">
@@ -114,7 +114,7 @@ export function AdvancedSwapDetails({ trade, allowedSlippage, minerBribe }: Adva
             <QuestionHelper text={i18n._(t`Tip to encourage miners to select this transaction.`)} />
           </RowFixed>
           <div className="text-sm font-bold text-high-emphesis">
-            {CurrencyAmount.fromRawAmount(SmartBCH.onChain(ChainId.SMARTBCH), minerBribe).toFixed(4)} BCH
+            {CurrencyAmount.fromRawAmount(SmartBCH.onChain(ChainId.MINTME), minerBribe).toFixed(4)} MINTME
           </div>
         </RowBetween>
       )}
