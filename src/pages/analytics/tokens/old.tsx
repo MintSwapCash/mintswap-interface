@@ -71,7 +71,7 @@ export default function Token(): JSX.Element {
   const chartTimespans = ['1W', '1M', 'ALL']
 
   const router = useRouter()
-  const id = '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272'.toLowerCase() //(router.query.id as string).toLowerCase()
+  const id = '0x539136445c7ae1e2475a5ea867cf9f1dee95a930'.toLowerCase() //(router.query.id as string).toLowerCase()
 
   const block1d = useBlock({ daysAgo: 1 })
   const block2d = useBlock({ daysAgo: 1 })
@@ -266,7 +266,7 @@ export default function Token(): JSX.Element {
                 <div className="text-2xl font-bold text-high-emphesis">About {token?.symbol}</div>
                 <div>
                   <a
-                    href={`https://etherscan.io/token/${token?.id}`}
+                    href={`https://mintme.com/explorer/token/${token?.id}`}
                     target="_blank"
                     rel="noreferrer"
                     className="flex flex-row items-center text-sm"
