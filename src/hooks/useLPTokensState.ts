@@ -58,16 +58,16 @@ const useLPTokensState = () => {
           version: "v2",
         } as LPToken;
 
-        const mintswapPairs = {
+        const benswapPairs = {
           [ChainId.MINTME]: {
           },
           },
         }
 
-        if (mintswapPairs[chainId] && mintswapPairs[chainId][address]) {
+        if (benwapPairs[chainId] && benswapPairs[chainId][address]) {
           console.log('PAIR FOUND')
-          data.tokenA = mintswapPairs[chainId][address].tokenA;
-          data.tokenB = mintswapPairs[chainId][address].tokenB;
+          data.tokenA = benswapPairs[chainId][address].tokenA;
+          data.tokenB = benswapPairs[chainId][address].tokenB;
         }
 
         lpTokens.push(data)
