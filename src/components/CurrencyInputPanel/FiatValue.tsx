@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, Percent } from '@mistswapdex/sdk'
+import { Currency, CurrencyAmount, Percent } from '@mintswapcash/sdk'
 import React, { useMemo } from 'react'
 
 import { t } from '@lingui/macro'
