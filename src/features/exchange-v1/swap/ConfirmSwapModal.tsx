@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, SmartBCH, Percent, TradeType, Trade as V2Trade } from '@mistswapdex/sdk'
+import { ChainId, Currency, CurrencyAmount, MINTME, Percent, TradeType, Trade as V2Trade } from '@mintswapcash/sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
@@ -88,12 +88,12 @@ export default function ConfirmSwapModal({
 
   const pendingText2 = minerBribe
     ? trade?.outputAmount.currency.isNative
-      ? `Minus ${CurrencyAmount.fromRawAmount(SmartBCH.onChain(ChainId.SMARTBCH), minerBribe).toSignificant(
+      ? `Minus ${CurrencyAmount.fromRawAmount(MINTME.onChain(ChainId.MINTME), minerBribe).toSignificant(
           6
-        )} BCH Miner Tip`
-      : `Plus ${CurrencyAmount.fromRawAmount(SmartBCH.onChain(ChainId.SMARTBCH), minerBribe).toSignificant(
+        )} MINTME Miner Tip`
+      : `Plus ${CurrencyAmount.fromRawAmount(MINTME.onChain(ChainId.MINTME), minerBribe).toSignificant(
           6
-        )} BCH Miner Tip`
+        )} MINTME Miner Tip`
     : undefined
 
   const confirmationContent = useCallback(
