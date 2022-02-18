@@ -24,7 +24,7 @@ const ProposalVoteOption = ({ proposal, index }) => {
       <div className="pt-2 cursor-pointer" onClick={vote}>
         <div>
           <span>{shorten(proposal?.options[index], 45)}</span>
-          <span className="ml-3">{formatXmist(proposal?.histogram[index])} xMIST</span>
+          <span className="ml-3">{formatXmist(proposal?.histogram[index])} xMINT</span>
           <span className="float-right">{proposal?.weightedHistogram[index]}%</span>
         </div>
         <div className="relative flex h-2 mb-3 overflow-hidden rounded-full">
