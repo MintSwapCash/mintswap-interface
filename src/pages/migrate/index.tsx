@@ -1,6 +1,6 @@
 import { AddressZero } from '@ethersproject/constants'
 import { formatUnits, parseUnits } from '@ethersproject/units'
-import { ChainId, Token, CurrencyAmount, JSBI } from '@mistswapdex/sdk'
+import { ChainId, Token, CurrencyAmount, JSBI } from '@mintswapcash/sdk'
 import { useSushiRollContract } from '../../hooks/useContract'
 import { useLingui } from '@lingui/react'
 import { t } from '@lingui/macro'
@@ -363,36 +363,34 @@ export default function MigrateV2() {
 
   let exchange
 
-  if (chainId === ChainId.SMARTBCH) {
+  if (chainId === ChainId.MINTME) {
       exchange = 'BenSwap'
-  } else if (chainId === ChainId.SMARTBCH_AMBER) {
-      exchange = 'BenSwap Amber'
   }
 
   return (
     <Container id="migrate-page" className="py-4 space-y-6 md:py-8 lg:py-12" maxWidth="2xl">
       <Head>
-          <title key="title">Migrate LP tokens | Mist</title>
+          <title key="title">Migrate LP tokens | Mint</title>
           <meta
             key="description"
             name="description"
-            content="Migrate LP tokens to Mist LP tokens"
+            content="Migrate LP tokens to Mint LP tokens"
           />
-          <meta key="twitter:url" name="twitter:url" content="https://app.mistswap.fi/migrate" />
+          <meta key="twitter:url" name="twitter:url" content="https://app.mintswap.cash/migrate" />
           <meta key="twitter:title" name="twitter:title" content="MIGRATE LP" />
           <meta
             key="twitter:description"
             name="twitter:description"
-            content="Migrate LP tokens to Mist LP tokens"
+            content="Migrate LP tokens to Mint LP tokens"
           />
-          <meta key="twitter:image" name="twitter:image" content="https://app.mistswap.fi/xmist-sign.png" />
+          <meta key="twitter:image" name="twitter:image" content="https://app.mintswap.cash/xmint-sign.png" />
           <meta key="og:title" property="og:title" content="MIGRATE LP" />
-          <meta key="og:url" property="og:url" content="https://app.mistswap.fi/migrate" />
-          <meta key="og:image" property="og:image" content="https://app.mistswap.fi/xmist-sign.png" />
+          <meta key="og:url" property="og:url" content="https://app.mistswap.cash/migrate" />
+          <meta key="og:image" property="og:image" content="https://app.mistswap.cash/xmint-sign.png" />
           <meta
             key="og:description"
             property="og:description"
-            content="Migrate LP tokens to Mist LP tokens"
+            content="Migrate LP tokens to Mint LP tokens"
           />
       </Head>
 
