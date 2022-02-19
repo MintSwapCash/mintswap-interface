@@ -20,7 +20,7 @@ export const masterChefV2 = async (query, chainId = ChainId.MINTME, variables = 
   request(`${GRAPH_HOST[chainId]}/subgraphs/name/${MASTERCHEF_V2[chainId]}`, query, variables)
 
 export const MASTERCHEF_V1 = {
-  [ChainId.SMARTBCH]: 'mintswap/master-chef',
+  [ChainId.MINTME]: 'mintswap/master-chef',
 }
 
 export const masterChefV1 = async (query, chainId = ChainId.MINTME, variables = undefined) =>
