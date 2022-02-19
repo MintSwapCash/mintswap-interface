@@ -69,7 +69,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency.isToken ? currency.address : 'BCH',
+          currencyId: currency.isToken ? currency.address : 'MINTME',
         })
       )
     },
@@ -104,7 +104,7 @@ export function useSwapActionHandlers(): {
 
 // TODO: Swtich for ours...
 const BAD_RECIPIENT_ADDRESSES: { [chainId: string]: { [address: string]: true } } = {
-  [ChainId.SMARTBCH]: {
+  [ChainId.MINTME]: {
     [FACTORY_ADDRESS[ChainId.MINTME]]: true,
     [ROUTER_ADDRESS[ChainId.MINTME]]: true,
   },
@@ -347,8 +347,8 @@ export function defaultSwapState(): SwapState {
 export function queryParametersToSwapState(parsedQs: ParsedQs, chainId: ChainId = ChainId.SMARTBCH): SwapState {
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency)
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency)
-  const eth = 'BCH'
-  const sushi = MIST_ADDRESS[chainId]
+  const eth = 'MINTME'
+  const sushi = MINT_ADDRESS[chainId]
   if (inputCurrency === '' && outputCurrency === '') {
     inputCurrency = eth
     outputCurrency = sushi

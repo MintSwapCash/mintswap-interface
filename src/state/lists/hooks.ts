@@ -51,8 +51,7 @@ export function useAllLists(): AppState['lists']['byUrl'] {
 
 function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddressMap {
   return {
-    [ChainId.SMARTBCH]: { ...map1[ChainId.SMARTBCH], ...map2[ChainId.SMARTBCH] },
-    [ChainId.SMARTBCH_AMBER]: { ...map1[ChainId.SMARTBCH_AMBER], ...map2[ChainId.SMARTBCH_AMBER] },
+    [ChainId.MINTME]: { ...map1[ChainId.MINTME], ...map2[ChainId.MINTME] },
   }
 }
 

@@ -20,7 +20,7 @@ export const initialState: SwapState = {
   independentField: Field.INPUT,
   typedValue: '',
   [Field.INPUT]: {
-    currencyId: 'BCH',
+    currencyId: 'MINTME',
   },
   [Field.OUTPUT]: {
     currencyId: MINT_ADDRESS[ChainId.MINTME],
