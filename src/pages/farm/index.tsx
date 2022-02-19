@@ -144,9 +144,9 @@ export default function Farm(): JSX.Element {
 
   let bchPriceUSD = 0;
   let mistPriceUSD = 0;
-  if (chainId === 10000) {
-    const flexUSDMistPool = farms.find((v) => v.pair === '0x437E444365aD9ed788e8f255c908bceAd5AEA645').pool;
-    const bchFlexUSDPool = farms.find((v) => v.pair === '0x24f011f12Ea45AfaDb1D4245bA15dCAB38B43D13').pool;
+  if (chainId === 24734) {
+    const flexUSDMistPool = farms.find((v) => v.pair === '0x6E91c8822A26AfE0B32Cb797Cac56438832e2055').pool;
+    const bchFlexUSDPool = farms.find((v) => v.pair === '0xE4A5449a649C04616AEC9CFb3883030df52b3934').pool;
     if (bchFlexUSDPool.reserves) {
       bchPriceUSD = Number.parseFloat(bchFlexUSDPool.reserves[1].toFixed()) / Number.parseFloat(bchFlexUSDPool.reserves[0].toFixed());
     }
