@@ -13,17 +13,17 @@ import { getTokenSubset } from './exchange'
 import { request } from 'graphql-request'
 
 export const MASTERCHEF_V2 = {
-  [ChainId.SMARTBCH]: 'mistswap/master-chefv2',
+  [ChainId.MINTME]: 'mintswap/master-chefv2',
 }
 
-export const masterChefV2 = async (query, chainId = ChainId.SMARTBCH, variables = undefined) =>
+export const masterChefV2 = async (query, chainId = ChainId.MINTME, variables = undefined) =>
   request(`${GRAPH_HOST[chainId]}/subgraphs/name/${MASTERCHEF_V2[chainId]}`, query, variables)
 
 export const MASTERCHEF_V1 = {
-  [ChainId.SMARTBCH]: 'mistswap/master-chef',
+  [ChainId.SMARTBCH]: 'mintswap/master-chef',
 }
 
-export const masterChefV1 = async (query, chainId = ChainId.SMARTBCH, variables = undefined) =>
+export const masterChefV1 = async (query, chainId = ChainId.MINTME, variables = undefined) =>
   request(`${GRAPH_HOST[chainId]}/subgraphs/name/${MASTERCHEF_V1[chainId]}`, query, variables)
 
 export const getMasterChefV1TotalAllocPoint = async () => {
@@ -53,7 +53,7 @@ export const getMasterChefV1PairAddreses = async () => {
 export const getMasterChefV2Farms = async (variables = undefined) => {
   const { pools } = await masterChefV2(poolsV2Query, undefined, variables)
 
-  const tokens = await getTokenSubset(ChainId.SMARTBCH, {
+  const tokens = await getTokenSubset(ChainId.MINTME, {
     tokenAddresses: Array.from(pools.map((pool) => pool.rewarder.rewardToken)),
   })
 
