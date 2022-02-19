@@ -53,7 +53,7 @@ export const masterChefV1PairAddressesQuery = gql`
 `
 
 export const masterChefV1TotalAllocPointQuery = gql`
-  query masterChefV1TotalAllocPoint($id: String! = "0xc2edad668740f1aa35e4d8f227fb8e17dca888cd") {
+  query masterChefV1TotalAllocPoint($id: String! = "0xf9882a21fc383ee56ecec4d67a4ac8b548fed15a") {
     masterChef(id: $id) {
       id
       totalAllocPoint
@@ -62,7 +62,7 @@ export const masterChefV1TotalAllocPointQuery = gql`
 `
 
 export const masterChefV1SushiPerBlockQuery = gql`
-  query masterChefV1SushiPerBlock($id: String! = "0xc2edad668740f1aa35e4d8f227fb8e17dca888cd") {
+  query masterChefV1SushiPerBlock($id: String! = "0xf9882a21fc383ee56ecec4d67a4ac8b548fed15a") {
     masterChef(id: $id) {
       id
       sushiPerBlock
