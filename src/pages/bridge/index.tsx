@@ -91,7 +91,7 @@ export default function Bridge() {
   const handleChainFrom = useCallback(
     (chain: Chain) => {
       if (chain.id === ChainId.
-          MINTME) {
+          BCH) {
         setChainTo(DEFAULT_CHAIN_FROM)
       } else {
         setChainTo(DEFAULT_CHAIN_TO)
@@ -456,7 +456,7 @@ export default function Bridge() {
               <DualChainCurrencyInputPanel
                 label={i18n._(t`You send:`)}
                 value={sendAmount}
-                currency={chainFrom.id == ChainId.MINTME ? WMINT : currency0}
+                currency={chainFrom.id == ChainId.MINTME ? BCH : currency0}
                 onUserInput={handleSendAmount}
                 onMax={(amount) => handleSendAmount(amount)}
                 onCurrencySelect={(currency) => {
@@ -464,14 +464,14 @@ export default function Bridge() {
                 }}
                 chainFrom={chainFrom}
                 chainTo={chainTo}
-                tokenList={chainFrom.id == ChainId.MINTME ? [WMINT] : tokenList}
+                tokenList={chainFrom.id == ChainId.MINTME ? [BCH] : tokenList}
                 chainList={anyswapInfo}
               />
 
               <DualChainCurrencyInputPanel
                 label={i18n._(t`You receive:`)}
                 value={receiveAmount}
-                currency={chainTo.id == ChainId.MINTME ? WMINT : currency0}
+                currency={chainTo.id == ChainId.MINTME ? BCH : currency0}
                 onUserInput={handleReceiveAmount}
                 onMax={(amount) => handleReceiveAmount(amount)}
                 onCurrencySelect={(currency) => {
@@ -479,7 +479,7 @@ export default function Bridge() {
                 }}
                 chainFrom={chainFrom}
                 chainTo={chainTo}
-                tokenList={chainTo.id == ChainId.MINTME ? [WMINT] : tokenList}
+                tokenList={chainTo.id == ChainId.MINTME ? [BCH] : tokenList}
                 chainList={anyswapInfo}
               >
                 <div className={classNames('')}>
