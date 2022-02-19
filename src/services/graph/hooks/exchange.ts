@@ -194,7 +194,7 @@ export function useSushiPrice(variables = undefined, swrConfig: SWRConfiguration
 }
 
 export function useMintPrice(variables = undefined, swrConfig: SWRConfiguration = undefined) {
-  const { data } = useSWR(['mintPrice', JSON.stringify(variables)], () => getMistPrice(variables), swrConfig)
+  const { data } = useSWR(['mintPrice', JSON.stringify(variables)], () => getMintPrice(variables), swrConfig)
 
   return data
 }
