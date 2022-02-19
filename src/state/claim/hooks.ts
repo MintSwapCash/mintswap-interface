@@ -3,7 +3,7 @@ import { getAddress, isAddress } from '@ethersproject/address'
 import { useEffect, useState } from 'react'
 
 import { MERKLE_ROOT } from './../../constants/index'
-import { MIST } from '../../config/tokens'
+import { MINT } from '../../config/tokens'
 import { TransactionResponse } from '@ethersproject/providers'
 import { calculateGasMargin } from '../../functions/trade'
 import { useActiveWeb3React } from '../../hooks/useActiveWeb3React'
