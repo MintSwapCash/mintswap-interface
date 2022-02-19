@@ -26,7 +26,6 @@ enum Fields {
   TOKEN0 = 0,
   TOKEN1 = 1,
 }
-
 export default function PoolFinder() {
   const { i18n } = useLingui()
   const { account, chainId } = useActiveWeb3React()
