@@ -90,7 +90,8 @@ export default function Bridge() {
 
   const handleChainFrom = useCallback(
     (chain: Chain) => {
-      if (chain.id === ChainId.MINTME) {
+      if (chain.id === ChainId.
+          BCH) {
         setChainTo(DEFAULT_CHAIN_FROM)
       } else {
         setChainTo(DEFAULT_CHAIN_TO)
@@ -143,8 +144,8 @@ export default function Bridge() {
           feeUsd: tokenToBridge.other.FeeUsd,
           feeBch: feeBch,
           receiveAmount: receiveAmount,
-          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "MINTME",
-          to: hopDirection === HopDirection.in ? "MINTME" : tokenToBridge.symbol,
+          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "BCH",
+          to: hopDirection === HopDirection.in ? "BCH" : tokenToBridge.symbol,
         })
 
         if (!sendAmount) {
@@ -183,8 +184,8 @@ export default function Bridge() {
           feeUsd: tokenToBridge.other.FeeUsd,
           feeBch: feeBch,
           receiveAmount: parseFloat(receiveAmount) || 0.,
-          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "MINTME",
-          to: hopDirection === HopDirection.in ? "MINTME" : tokenToBridge.symbol,
+          from: hopDirection === HopDirection.in ? tokenToBridge.symbol : "BCH",
+          to: hopDirection === HopDirection.in ? "BCH" : tokenToBridge.symbol,
         })
 
         if (!receiveAmount) {
@@ -224,8 +225,8 @@ export default function Bridge() {
           setShiftAllowed(allowed)
 
           if (allowed) {
-            const from = hopDirection === HopDirection.in ? methodId : "mintme"
-            const to = hopDirection === HopDirection.in ? "mintme" : methodId
+            const from = hopDirection === HopDirection.in ? methodId : "bch"
+            const to = hopDirection === HopDirection.in ? "bch" : methodId
             const quote = await xaiQuote(from, to)
 
             tokenTo.other.MinimumSwap = parseFloat(quote.min)
@@ -253,7 +254,7 @@ export default function Bridge() {
       shiftStatus: { direction: hopDirection, methodId },
       addedTime: new Date().getTime(),
       initialAmount: sendAmount,
-      symbol: hopDirection === HopDirection.in ? currency0.symbol : "MINTME",
+      symbol: hopDirection === HopDirection.in ? currency0.symbol : "BCH",
       from: activeAccount || account,
       srcChainId: chainFrom.id,
       destChainId: chainTo.id,
@@ -348,7 +349,7 @@ export default function Bridge() {
         onDismiss={() => setShowBridgeModal(false)} />)}
 
       <Head>
-        <title>{i18n._(t`Bridge`)} | MintSwap</title>
+        <title>{i18n._(t`Bridge`)} | MISTswap</title>
         <meta key="description" name="description" content="Bridge" />
       </Head>
 
@@ -412,6 +413,15 @@ export default function Bridge() {
               </div>
             </div>
 
+            {helpVisible && (<div className="p-3 mx-5 rounded bg-dark-800">
+              <p>{i18n._(t`This service helps you to try out the SmartBCH network by converting your assets to BCH and bridging it to our network`)}</p>
+              <p>{i18n._(t`Our bridge utilizes a two-step process:`)}</p>
+              <p className="pl-4">{i18n._(t`1) asset coversion from anything to BCH with`)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://sideshift.ai">SideShift.ai</a>.</p>
+              <p className="pl-4">{i18n._(t`2) bridging the BCH to SmartBCH with `)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://hop.cash">hop.cash</a></p>
+              <p>{i18n._(t`If you experience any issues with SideShift conversion, note the order id, visit their website and ask for support there or in their telegram group: `)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://t.me/sideshift">https://t.me/sideshift</a>.</p>
+              <p>{i18n._(t`For issues related to hop cash, note the BCH and SBCH transaction ids and ask for support here:`)} <a className="font-bold" target="_blank" rel="noreferrer" href="https://t.me/hopcash">https://t.me/hopcash</a>.</p>
+            </div>)}
+
             <div className="flex flex-row items-center justify-between text-center">
               <ChainSelect
                 chains={chains}
@@ -446,7 +456,7 @@ export default function Bridge() {
               <DualChainCurrencyInputPanel
                 label={i18n._(t`You send:`)}
                 value={sendAmount}
-                currency={chainFrom.id == ChainId.MINTME ? MINTME : currency0}
+                currency={chainFrom.id == ChainId.MINTME ? WMINT : currency0}
                 onUserInput={handleSendAmount}
                 onMax={(amount) => handleSendAmount(amount)}
                 onCurrencySelect={(currency) => {
@@ -454,14 +464,14 @@ export default function Bridge() {
                 }}
                 chainFrom={chainFrom}
                 chainTo={chainTo}
-                tokenList={chainFrom.id == ChainId.MINTME ? [MINTME] : tokenList}
+                tokenList={chainFrom.id == ChainId.MINTME ? [WMINT] : tokenList}
                 chainList={anyswapInfo}
               />
 
               <DualChainCurrencyInputPanel
                 label={i18n._(t`You receive:`)}
                 value={receiveAmount}
-                currency={chainTo.id == ChainId.MINTME ? MINTME : currency0}
+                currency={chainTo.id == ChainId.MINTME ? WMINT : currency0}
                 onUserInput={handleReceiveAmount}
                 onMax={(amount) => handleReceiveAmount(amount)}
                 onCurrencySelect={(currency) => {
@@ -469,7 +479,7 @@ export default function Bridge() {
                 }}
                 chainFrom={chainFrom}
                 chainTo={chainTo}
-                tokenList={chainTo.id == ChainId.MINTME ? [MINTME] : tokenList}
+                tokenList={chainTo.id == ChainId.MINTME ? [WMINT] : tokenList}
                 chainList={anyswapInfo}
               >
                 <div className={classNames('')}>
@@ -550,14 +560,6 @@ export default function Bridge() {
                 </div>
               </div>
             )}
-
-            <AutoRow
-              style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
-              justify={'center'}
-              gap={'0 3px'}
-            >
-              {i18n._(t`Powered by MintSwap`)}
-            </AutoRow>
           </div>
         </DoubleGlowShadow>
       </Container>
