@@ -5,7 +5,7 @@ import { barHistoriesQuery, barQuery } from '../queries/bar'
 import { useActiveWeb3React } from '../../../hooks'
 
 const BAR = {
-  [ChainId.MINTME]: 'mistswap/bar',
+  [ChainId.MINTME]: 'mintswap/bar',
 }
 
 export const bar = async (query, variables = undefined) => {
