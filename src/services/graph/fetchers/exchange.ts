@@ -158,9 +158,9 @@ export const getAvaxPrice = async (variables = undefined) => {
   // return getNativePrice(ChainId.AVALANCHE, variables)
 }
 
-export const getMistPrice = async (variables = {}) => {
+export const getMintPrice = async (variables = {}) => {
   return getTokenPrice(ChainId.MINTME, tokenPriceQuery, {
-    id: '0x5fa664f69c2a4a3ec94fac3cbf7049bd9ca73129',
+    id: '0x8d3b7b20500ea1b018813821a190527c4f2221c5',
     ...variables,
   })
 }
