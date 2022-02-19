@@ -91,7 +91,7 @@ export default function Bridge() {
   const handleChainFrom = useCallback(
     (chain: Chain) => {
       if (chain.id === ChainId.
-          BCH) {
+          MINTME) {
         setChainTo(DEFAULT_CHAIN_FROM)
       } else {
         setChainTo(DEFAULT_CHAIN_TO)
