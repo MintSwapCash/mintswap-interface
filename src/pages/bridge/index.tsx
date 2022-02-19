@@ -253,7 +253,7 @@ export default function Bridge() {
       shiftStatus: { direction: hopDirection, methodId },
       addedTime: new Date().getTime(),
       initialAmount: sendAmount,
-      symbol: hopDirection === HopDirection.in ? currency0.symbol : "BCH",
+      symbol: hopDirection === HopDirection.in ? currency0.symbol : "MINTME",
       from: activeAccount || account,
       srcChainId: chainFrom.id,
       destChainId: chainTo.id,
@@ -338,7 +338,7 @@ export default function Bridge() {
     .filter((r) => anyswapChains.includes(r))
 
   // put smartbch on the top
-  availableChains = [ChainId.SMARTBCH, ...availableChains.filter(val => val !== ChainId.MINTME)]
+  availableChains = [ChainId.MINTME, ...availableChains.filter(val => val !== ChainId.MINTME)]
 
   return (
     <>
@@ -348,7 +348,7 @@ export default function Bridge() {
         onDismiss={() => setShowBridgeModal(false)} />)}
 
       <Head>
-        <title>{i18n._(t`Bridge`)} | MINTswap</title>
+        <title>{i18n._(t`Bridge`)} | MintSwap</title>
         <meta key="description" name="description" content="Bridge" />
       </Head>
 
