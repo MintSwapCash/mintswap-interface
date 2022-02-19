@@ -87,7 +87,8 @@ export function useUserUnclaimedAmount(account: string | null | undefined): Curr
   const userClaimData = useUserClaimData(account)
   const canClaim = useUserHasAvailableClaim(account)
 
-  const sushi = chainId ? MIST[chainId] : undefined
+  const sushi = chainId ? MIN
+  T[chainId] : undefined
 
   // console.log('claimStats:', {
   //   canClaim: canClaim,
