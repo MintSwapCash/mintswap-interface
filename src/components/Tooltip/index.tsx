@@ -4,7 +4,6 @@ import React, { ReactNode, useCallback, useState } from 'react'
 interface TooltipProps extends Omit<PopoverProps, 'content'> {
   text: ReactNode
 }
-
 interface TooltipContentProps extends Omit<PopoverProps, 'content'> {
   content: ReactNode
 }
