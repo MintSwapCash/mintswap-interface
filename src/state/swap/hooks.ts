@@ -316,7 +316,7 @@ function parseCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === 'BCH') return 'BCH'
+    if (urlParam.toUpperCase() === 'MINTME') return 'MINTME'
   }
   return ''
 }
@@ -344,7 +344,7 @@ export function defaultSwapState(): SwapState {
   return queryParametersToSwapState(initialState);
 }
 
-export function queryParametersToSwapState(parsedQs: ParsedQs, chainId: ChainId = ChainId.SMARTBCH): SwapState {
+export function queryParametersToSwapState(parsedQs: ParsedQs, chainId: ChainId = ChainId.MINTME): SwapState {
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency)
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency)
   const eth = 'MINTME'
