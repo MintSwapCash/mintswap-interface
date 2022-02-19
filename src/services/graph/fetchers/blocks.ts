@@ -6,14 +6,14 @@ import { GRAPH_HOST } from '../constants'
 import { request } from 'graphql-request'
 
 export const BLOCKS = {
-  [ChainId.SMARTBCH]: 'blocklytics/ethereum-blocks',
+  [ChainId.MINTME]: 'blocklytics/ethereum-blocks',
 }
 
-export const fetcher = async (chainId = ChainId.SMARTBCH, query, variables = undefined) => {
+export const fetcher = async (chainId = ChainId.MINTME, query, variables = undefined) => {
   return request(`${GRAPH_HOST[chainId]}/subgraphs/name/${BLOCKS[chainId]}`, query, variables)
 }
 
-export const getBlock = async (chainId = ChainId.SMARTBCH, timestamp: number) => {
+export const getBlock = async (chainId = ChainId.MINTME, timestamp: number) => {
   const { blocks } = await fetcher(
     chainId,
     blockQuery,
@@ -30,7 +30,7 @@ export const getBlock = async (chainId = ChainId.SMARTBCH, timestamp: number) =>
   return Number(blocks?.[0]?.number)
 }
 
-export const getBlocks = async (chainId = ChainId.SMARTBCH, start, end) => {
+export const getBlocks = async (chainId = ChainId.MINTME, start, end) => {
   const { blocks } = await fetcher(chainId, blocksQuery, {
     start,
     end,
@@ -38,7 +38,7 @@ export const getBlocks = async (chainId = ChainId.SMARTBCH, start, end) => {
   return blocks
 }
 
-export const getMassBlocks = async (chainId = ChainId.SMARTBCH, timestamps) => {
+export const getMassBlocks = async (chainId = ChainId.MINTME, timestamps) => {
   const data = await fetcher(chainId, massBlocksQuery(timestamps))
   return Object.values(data).map((entry) => ({
     number: Number(entry[0].number),
@@ -48,7 +48,7 @@ export const getMassBlocks = async (chainId = ChainId.SMARTBCH, timestamps) => {
 
 // Grabs the last 1000 (a sample statistical) blocks and averages
 // the time difference between them
-export const getAverageBlockTime = async (chainId = ChainId.SMARTBCH) => {
+export const getAverageBlockTime = async (chainId = ChainId.MINTME) => {
   // console.log('getAverageBlockTime')
   const now = startOfHour(Date.now())
   const start = getUnixTime(subHours(now, 6))
