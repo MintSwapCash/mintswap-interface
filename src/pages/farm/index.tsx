@@ -12,7 +12,7 @@ import {
 } from '../../services/graph'
 
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId, WNATIVE, Token, WBCH, MASTERCHEF_ADDRESS } from '@mintswapcash/sdk'
+import { ChainId, WNATIVE, Token, WMINT, MASTERCHEF_ADDRESS } from '@mintswapcash/sdk'
 import { MINT, FLEXUSD } from '../../config/tokens'
 import Container from '../../components/Container'
 import FarmList from '../../features/onsen/FarmList'
